@@ -1,0 +1,76 @@
+{
+  "widgets": [
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 0,
+      "width": 6,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          [ "AWS/Lambda", "Invocations", "FunctionName", "security-analytics-dev-event-processor" ]
+        ],
+        "view": "singleValue",
+        "stacked": false,
+        "region": "us-east-1",
+        "title": "Events Processed (Last Hour)",
+        "period": 3600,
+        "stat": "Sum"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 6,
+      "y": 0,
+      "width": 6,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          [ "AWS/Lambda", "Errors", "FunctionName", "security-analytics-dev-event-processor" ]
+        ],
+        "view": "singleValue",
+        "stacked": false,
+        "region": "us-east-1",
+        "title": "Processing Errors (Last Hour)",
+        "period": 3600,
+        "stat": "Sum"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 0,
+      "width": 6,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          [ "AWS/SNS", "NumberOfMessagesPublished", "TopicName", "security-analytics-dev-security-alerts" ]
+        ],
+        "view": "singleValue",
+        "stacked": false,
+        "region": "us-east-1",
+        "title": "Security Alerts (Last Hour)",
+        "period": 3600,
+        "stat": "Sum"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 18,
+      "y": 0,
+      "width": 6,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          [ "AWS/Lambda", "Duration", "FunctionName", "security-analytics-dev-event-processor" ]
+        ],
+        "view": "singleValue",
+        "stacked": false,
+        "region": "us-east-1",
+        "title": "Avg Processing Time (ms)",
+        "period": 3600,
+        "stat": "Average"
+      }
+    }
+  ]
+}

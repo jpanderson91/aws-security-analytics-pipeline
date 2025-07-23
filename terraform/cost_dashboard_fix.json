@@ -1,0 +1,35 @@
+{
+  "widgets": [
+    {
+      "type": "log",
+      "x": 0,
+      "y": 0,
+      "width": 12,
+      "height": 8,
+      "properties": {
+        "query": "SOURCE '/aws/lambda/security-analytics-dev-event-processor'\n| fields @timestamp, @message\n| filter @message like /REPORT/\n| parse @message /Duration: (?<duration>\\d+\\.\\d+) ms.*Billed Duration: (?<billed_duration>\\d+) ms.*Memory Size: (?<memory_size>\\d+) MB.*Max Memory Used: (?<max_memory>\\d+) MB/\n| stats avg(duration), avg(max_memory), count() by bin(5m)",
+        "region": "us-east-1",
+        "title": "Lambda Resource Utilization",
+        "view": "table"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 0,
+      "width": 12,
+      "height": 8,
+      "properties": {
+        "metrics": [
+          ["AWS/Kinesis", "IncomingBytes", "StreamName", "security-analytics-dev-security-events"],
+          ["AWS/S3", "BucketSizeBytes", "BucketName", "security-analytics-dev-security-data-lake-6t5cze3h", "StorageType", "StandardStorage"]
+        ],
+        "period": 3600,
+        "stat": "Average",
+        "region": "us-east-1",
+        "title": "Data Volume (Cost Drivers)",
+        "view": "timeSeries"
+      }
+    }
+  ]
+}

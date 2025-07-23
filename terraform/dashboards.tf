@@ -221,7 +221,7 @@ resource "aws_cloudwatch_dashboard" "cost_tracking" {
         height = 8
 
         properties = {
-          query = "fields @timestamp, @message\n| filter @message like /REPORT/\n| parse @message /Duration: (?<duration>\\d+\\.\\d+) ms.*Billed Duration: (?<billed_duration>\\d+) ms.*Memory Size: (?<memory_size>\\d+) MB.*Max Memory Used: (?<max_memory>\\d+) MB/\n| stats avg(duration), avg(max_memory), count() by bin(5m)"
+          query = "SOURCE '/aws/lambda/${aws_lambda_function.event_processor.function_name}'\n| fields @timestamp, @message\n| filter @message like /REPORT/\n| parse @message /Duration: (?<duration>\\d+\\.\\d+) ms.*Billed Duration: (?<billed_duration>\\d+) ms.*Memory Size: (?<memory_size>\\d+) MB.*Max Memory Used: (?<max_memory>\\d+) MB/\n| stats avg(duration), avg(max_memory), count() by bin(5m)"
           region = var.aws_region
           title  = "Lambda Resource Utilization"
           view   = "table"
