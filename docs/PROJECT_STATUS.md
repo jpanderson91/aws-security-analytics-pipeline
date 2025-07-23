@@ -92,9 +92,16 @@ aws-security-analytics-pipeline/
 
 ### **Validation Data**
 - ✅ **12 S3 Objects**: Confirmed data processing
-- ✅ **Lambda Invocations**: Real-time processing metrics
+- ✅ **Lambda Invocations**: Real-time processing metrics (3 events, 138ms avg)
+- ✅ **Zero Errors**: Reliable system with 0 processing errors
 - ✅ **Kinesis Records**: Stream activity validated
-- ✅ **Dashboard Functionality**: All widgets operational
+- ✅ **Dashboard Functionality**: All widgets operational with live data
+- ✅ **Visual Proof**: Portfolio-ready screenshots showing working infrastructure
+
+### **📸 Dashboard Screenshots**
+- **Security Analytics Dashboard**: Live metrics with Lambda performance, Kinesis activity, S3 status
+- **Security Metrics Dashboard**: Clean single-value widgets showing 3 events, 0 errors, 138ms timing
+- **Cost Tracking Dashboard**: Resource utilization and cost optimization data
 
 ---
 
