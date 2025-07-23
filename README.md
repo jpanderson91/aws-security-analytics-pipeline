@@ -127,21 +127,25 @@ aws sts get-caller-identity --profile YOUR_PROFILE
 ### 🎯 **Cost-Optimized Deployment** (Recommended)
 ```bash
 # Clone and navigate
+git clone https://github.com/jpanderson91/aws-security-analytics-pipeline.git
 cd aws-security-analytics-pipeline/terraform
 
 # Initialize Terraform
 terraform init
 
-# Deploy with cost optimization
-terraform apply -var-file="terraform-cost-optimized.tfvars" -auto-approve
+# Deploy infrastructure
+terraform apply -auto-approve
 
 # Verify deployment
-aws lambda list-functions --profile YOUR_PROFILE
-aws kinesis list-streams --profile YOUR_PROFILE
+aws lambda list-functions
+aws kinesis list-streams
 ```
 
 ### 🧪 **Test the Pipeline**
 ```bash
+# Navigate to testing directory
+cd ../testing
+
 # Run end-to-end test
 python test_pipeline.py
 
@@ -156,26 +160,27 @@ python test_pipeline.py
 
 ```
 aws-security-analytics-pipeline/
-├── terraform/              # Infrastructure as Code
-│   ├── main.tf             # Main Terraform configuration
-│   ├── variables.tf        # Input variables
-│   ├── outputs.tf          # Output values
-│   ├── modules/            # Custom Terraform modules
-│   └── environments/       # Environment-specific configs
-├── src/                    # Source code
-│   ├── lambda/             # Lambda function code
-│   │   ├── event_processor/    # Main event processing
-│   │   ├── alert_handler/      # Alert processing
-│   │   └── data_transformer/   # Data transformation
-│   ├── glue/               # Glue ETL scripts
-│   └── utils/              # Shared utilities
-├── docs/                   # Documentation
-│   ├── architecture.md     # Architecture details
-│   ├── deployment.md       # Deployment guide
-│   └── troubleshooting.md  # Common issues
-├── tests/                  # Test suite
-├── data/                   # Sample data for testing
-└── scripts/                # Utility scripts
+├── docs/                   # 📋 Complete documentation
+│   ├── DASHBOARD_VALIDATION.md  # Dashboard URLs & validation guide
+│   ├── ISSUE_TRACKING.md       # Complete issue resolution log  
+│   ├── PROJECT_STATUS.md       # Portfolio status summary
+│   ├── cost-analysis.md        # Cost optimization analysis
+│   ├── PROJECT_1_CLEANUP_SUMMARY.md # Resource cleanup documentation
+│   └── screenshots/            # Professional dashboard images
+├── src/                    # 💻 Source code
+│   ├── deploy.py          # Deployment automation script
+│   └── lambda/            # Lambda function code
+│       └── event_processor/    # Main event processing function
+├── terraform/             # 🏗️ Infrastructure as Code
+│   ├── main.tf           # Core infrastructure configuration
+│   ├── dashboards.tf     # CloudWatch dashboards
+│   ├── variables.tf      # Input variables
+│   └── outputs.tf        # Output values
+├── testing/               # 🧪 Testing & validation
+│   ├── test_pipeline.py  # End-to-end pipeline testing
+│   └── dashboard_configs/ # Fixed dashboard JSON configurations
+├── PROJECT_1_COMPLETE.md  # Final project summary
+└── README.md              # This file
 ```
 
 ## 📈 Dashboard Metrics
@@ -194,55 +199,48 @@ aws-security-analytics-pipeline/
 
 ## 🔧 Configuration
 
-### Environment Variables
-```bash
-# Required
-AWS_REGION=us-east-1
-KINESIS_STREAM_NAME=security-events-stream
-S3_BUCKET_NAME=security-analytics-data-lake
+The pipeline is configured through Terraform variables in the `terraform/` directory. Key configurations include:
 
-# Optional
-LOG_LEVEL=INFO
-RETENTION_DAYS=90
-ALERT_EMAIL=security-team@company.com
-```
+### AWS Resources
+- **Region**: us-east-1 (configurable)
+- **Environment**: dev (default)
+- **Project Name**: security-analytics
 
-### GuardDuty Settings
-- Enable all threat detection features
-- Configure custom threat lists
-- Set up automated response actions
-- Define alert thresholds
+### Cost Optimization
+- GuardDuty disabled by default (can be enabled manually)
+- Reduced log retention periods
+- Optimized Lambda memory allocation
+- S3 lifecycle policies for cost management
+
+For detailed cost analysis, see [docs/cost-analysis.md](docs/cost-analysis.md).
 
 ## 🧪 Testing
 
-### Unit Tests
+### End-to-End Pipeline Test
 ```bash
-cd tests
-python -m pytest unit/ -v
+# Test the complete pipeline
+cd testing
+python test_pipeline.py
 ```
 
-### Integration Tests
+### Manual Validation
 ```bash
-# Test end-to-end pipeline
-python -m pytest integration/ -v
+# Check deployed resources
+aws lambda list-functions
+aws kinesis list-streams  
+aws s3 ls security-analytics-dev-security-data-lake-*
 
-# Generate test security events
-python scripts/generate_test_events.py
-```
-
-### Load Testing
-```bash
-# Simulate high-volume security events
-python scripts/load_test.py --events 10000 --duration 300
+# View CloudWatch dashboards
+# Use URLs from docs/DASHBOARD_VALIDATION.md
 ```
 
 ## 📚 Documentation
 
-- [Architecture Deep Dive](docs/architecture.md)
-- [Deployment Guide](docs/deployment.md)
-- [Security Best Practices](docs/security.md)
-- [Troubleshooting Guide](docs/troubleshooting.md)
-- [API Reference](docs/api.md)
+- [Dashboard Validation Guide](docs/DASHBOARD_VALIDATION.md) - Live dashboard URLs and validation steps
+- [Issue Tracking & Resolution](docs/ISSUE_TRACKING.md) - Complete troubleshooting log
+- [Project Status Summary](docs/PROJECT_STATUS.md) - Portfolio-ready project summary
+- [Cost Analysis & Optimization](docs/cost-analysis.md) - Detailed cost breakdown and optimization strategies
+- [Resource Cleanup Summary](docs/PROJECT_1_CLEANUP_SUMMARY.md) - AWS resource cleanup documentation
 
 ## 🔒 Security Considerations
 
@@ -295,14 +293,22 @@ python scripts/load_test.py --events 10000 --duration 300
 - [ ] Third-party threat feeds
 - [ ] Mobile alerting
 
-## 🤝 Contributing
+## 🤝 Portfolio Project
 
-This project demonstrates professional AWS security analytics capabilities. Key areas for enhancement:
+This project demonstrates professional AWS security analytics capabilities and is designed to showcase DevOps and Data Engineering expertise for senior-level positions. 
 
-1. **Custom Detection Rules**: Add domain-specific security rules
-2. **Advanced Analytics**: Implement machine learning models
-3. **Integration Expansion**: Connect additional security tools
-4. **Performance Optimization**: Enhance processing efficiency
+### **Key Demonstration Points:**
+1. **Infrastructure as Code**: Complete Terraform automation
+2. **Cost Engineering**: Optimized AWS resource usage
+3. **Real-time Processing**: Event-driven serverless architecture  
+4. **Operational Excellence**: Comprehensive monitoring and alerting
+5. **Problem-Solving**: Documented issue resolution process
+
+### **Live Validation:**
+- Working CloudWatch dashboards with real data
+- End-to-end pipeline processing test events
+- Zero-cost shutdown capability demonstrated
+- Professional documentation and screenshot evidence
 
 ## 📞 Support
 
@@ -316,6 +322,6 @@ For questions about this implementation or Toyota RSOC integration:
 ---
 
 **Project Status**: ✅ Production Ready  
-**Last Updated**: January 2025  
+**Last Updated**: July 2025  
 **AWS Services**: 8+ integrated services  
 **Security Focus**: Toyota RSOC alignment
