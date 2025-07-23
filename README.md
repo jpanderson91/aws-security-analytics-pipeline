@@ -288,7 +288,7 @@ aws s3 ls security-analytics-dev-security-data-lake-*
 - [ ] Custom threat intelligence feeds
 
 ### Integration Opportunities
-- [ ] SIEM integration (Splunk, QRadar)
+- [ ] SIEM integration (Sentinel, Splunk, QRadar)
 - [ ] Incident response automation
 - [ ] Third-party threat feeds
 - [ ] Mobile alerting
