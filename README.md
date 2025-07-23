@@ -28,7 +28,7 @@ A **production-ready, cost-optimized** security analytics pipeline that demonstr
 
 > 🎯 **Portfolio Demonstration**: These screenshots show a live, working AWS security analytics pipeline processing real data with zero errors and fast performance.
 
-> *Designed for Toyota RSOC (Regional Security Operations Center) requirements - demonstrating expertise in AWS security services, event-driven architecture, and cost optimization strategies.*
+> *Designed for RSOC (Regional Security Operations Center) requirements - demonstrating expertise in AWS security services, event-driven architecture, and cost optimization strategies.*
 
 ## 🏗️ Architecture
 
