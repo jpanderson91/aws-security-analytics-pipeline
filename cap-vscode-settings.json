@@ -1,0 +1,30 @@
+{
+    "terraform.experimentalFeatures.validateOnSave": true,
+    "terraform.experimentalFeatures.prefillRequiredFields": true,
+    "python.defaultInterpreterPath": "./venv/Scripts/python.exe",
+    "python.terminal.activateEnvironment": true,
+    "files.associations": {
+        "*.tf": "terraform",
+        "*.tfvars": "terraform",
+        "*.yml": "yaml",
+        "*.yaml": "yaml"
+    },
+    "json.schemas": [
+        {
+            "fileMatch": ["**/beats-config/*.yml"],
+            "url": "https://raw.githubusercontent.com/elastic/beats/master/filebeat/filebeat.reference.yml"
+        }
+    ],
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "editor.rulers": [88],
+    "files.exclude": {
+        "**/.terraform": true,
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/venv": true
+    },
+    "terraform.workspaceFolder": "./terraform"
+}

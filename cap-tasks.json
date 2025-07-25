@@ -1,0 +1,62 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Terraform Plan - CAP Demo",
+            "type": "shell",
+            "command": "terraform",
+            "args": ["plan", "-var-file=cap-demo.tfvars"],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/terraform"
+            }
+        },
+        {
+            "label": "Deploy CAP Demo",
+            "type": "shell",
+            "command": "python",
+            "args": ["scripts/deploy_demo.py", "--environment=demo"],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "Start Kafka Consumer Test",
+            "type": "shell",
+            "command": "python",
+            "args": ["src/kafka/consumer_test.py", "--topic=customer-demo-logs"],
+            "group": "test"
+        },
+        {
+            "label": "Run Demo Scenarios",
+            "type": "shell",
+            "command": "python",
+            "args": ["scripts/demo-scenarios/run_all_scenarios.py"],
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "MSK Cluster Status",
+            "type": "shell",
+            "command": "aws",
+            "args": ["kafka", "describe-cluster", "--cluster-arn", "${input:clusterArn}"],
+            "group": "test"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "clusterArn",
+            "description": "MSK Cluster ARN",
+            "default": "arn:aws:kafka:us-east-1:123456789012:cluster/cap-demo-kafka/*",
+            "type": "promptString"
+        }
+    ]
+}

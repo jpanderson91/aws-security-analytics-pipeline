@@ -1,0 +1,46 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug CAP Processor",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/ecs/data-processor/cap_processor.py",
+            "console": "integratedTerminal",
+            "env": {
+                "AWS_PROFILE": "cap-demo",
+                "KAFKA_BOOTSTRAP_SERVERS": "localhost:9092",
+                "S3_BRONZE_BUCKET": "cap-demo-bronze-${random_id}",
+                "S3_SILVER_BUCKET": "cap-demo-silver-${random_id}",
+                "S3_GOLD_BUCKET": "cap-demo-gold-${random_id}"
+            }
+        },
+        {
+            "name": "Debug Demo Scenario",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/demo-scenarios/new_customer_onboarding.py",
+            "args": ["--customer=abc-corp", "--dry-run"],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Debug JDBC Connector",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/kafka/connectors/jdbc_connector.py",
+            "console": "integratedTerminal",
+            "env": {
+                "DB_SECRET_NAME": "demo-customer-db-creds",
+                "AWS_PROFILE": "cap-demo"
+            }
+        },
+        {
+            "name": "Test Bronze->Silver->Gold Pipeline",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/testing/test_data_pipeline.py",
+            "args": ["--pipeline=full", "--sample-data"],
+            "console": "integratedTerminal"
+        }
+    ]
+}

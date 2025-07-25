@@ -1,0 +1,37 @@
+{
+    "folders": [
+        {
+            "name": "CAP Demo Project",
+            "path": "../cap-data-ingestion-demo"
+        },
+        {
+            "name": "Reference: Security Analytics Pipeline",
+            "path": "."
+        }
+    ],
+    "settings": {
+        "terraform.workspaceFolder": "../cap-data-ingestion-demo/terraform",
+        "python.defaultInterpreterPath": "../cap-data-ingestion-demo/venv/Scripts/python.exe",
+        "files.watcherExclude": {
+            "**/venv/**": true,
+            "**/.terraform/**": true,
+            "**/__pycache__/**": true
+        },
+        "search.exclude": {
+            "**/venv": true,
+            "**/.terraform": true,
+            "**/node_modules": true
+        }
+    },
+    "extensions": {
+        "recommendations": [
+            "hashicorp.terraform",
+            "ms-python.python",
+            "ms-python.pylint",
+            "amazonwebservices.aws-toolkit-vscode",
+            "redhat.vscode-yaml",
+            "ms-vscode.docker",
+            "ms-vscode.powershell"
+        ]
+    }
+}
