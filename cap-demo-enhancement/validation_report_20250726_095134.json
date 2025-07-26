@@ -1,0 +1,75 @@
+{
+  "start_time": "2025-07-26T09:51:29.128240",
+  "phases": {
+    "Phase 1": {
+      "deployment": false,
+      "verification": false,
+      "errors": [
+        "Deployment failed: C:\\Python311\\python.exe: can't open file 'C:\\\\Users\\\\jpand\\\\sec-analytics-pipeline\\\\cap-data-ingestion-demo\\\\consolidated\\\\setup_phase1_msk.py': [Errno 2] No such file or directory\n"
+      ],
+      "warnings": [],
+      "duration": 0.05100274085998535,
+      "screenshots": []
+    },
+    "Phase 2": {
+      "deployment": false,
+      "verification": false,
+      "errors": [
+        "Deployment failed: Traceback (most recent call last):\n  File \"C:\\Users\\jpand\\sec-analytics-pipeline\\cap-data-ingestion-demo\\consolidated\\scripts\\setup_phase2_processing.py\", line 1032, in <module>\n    main()\n  File \"C:\\Users\\jpand\\sec-analytics-pipeline\\cap-data-ingestion-demo\\consolidated\\scripts\\setup_phase2_processing.py\", line 994, in main\n    print(\"\\U0001f680 CAP Demo - Phase 2 Deployment Starting\")\n  File \"C:\\Python311\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\U0001f680' in position 0: character maps to <undefined>\n"
+      ],
+      "warnings": [],
+      "duration": 0.11200523376464844,
+      "screenshots": []
+    },
+    "Phase 3": {
+      "deployment": false,
+      "verification": false,
+      "errors": [
+        "Deployment failed: Traceback (most recent call last):\n  File \"C:\\Users\\jpand\\sec-analytics-pipeline\\cap-data-ingestion-demo\\consolidated\\scripts\\setup_phase3_analytics.py\", line 462, in run\n    if not self.verify_prerequisites():\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jpand\\sec-analytics-pipeline\\cap-data-ingestion-demo\\consolidated\\scripts\\setup_phase3_analytics.py\", line 52, in verify_prerequisites\n    console.print(\"\\n[bold blue]\\U0001f50d Verifying Prerequisites...[/bold blue]\")\n  File \"C:\\Python311\\Lib\\site-packages\\rich\\console.py\", line 1697, in print\n    with self:\n  File \"C:\\Python311\\Lib\\site-packages\\rich\\console.py\", line 870, in __exit__\n    self._exit_buffer()\n  File \"C:\\Python311\\Lib\\site-packages\\rich\\console.py\", line 826, in _exit_buffer\n    self._check_buffer()\n  File \"C:\\Python311\\Lib\\site-packages\\rich\\console.py\", line 2038, in _check_buffer\n    self._write_buffer()\n  File \"C:\\Python311\\Lib\\site-packages\\rich\\console.py\", line 2074, in _write_buffer\n    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))\n  File \"C:\\Python311\\Lib\\site-packages\\rich\\_windows_renderer.py\", line 17, in legacy_windows_render\n    term.write_styled(text, style)\n  File \"C:\\Python311\\Lib\\site-packages\\rich\\_win32_console.py\", line 441, in write_styled\n    self.write_text(text)\n  File \"C:\\Python311\\Lib\\site-packages\\rich\\_win32_console.py\", line 402, in write_text\n    self.write(text)\n  File \"C:\\Python311\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\U0001f50d' in position 0: character maps to <undefined>\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\jpand\\sec-analytics-pipeline\\cap-data-ingestion-demo\\consolidated\\scripts\\setup_phase3_analytics.py\", line 506, in <module>\n    main()\n  File \"C:\\Users\\jpand\\sec-analytics-pipeline\\cap-data-ingestion-demo\\consolidated\\scripts\\setup_phase3_analytics.py\", line 496, in main\n    success = deployer.run()\n              ^^^^^^^^^^^^^^\n  File \"C:\\Users\\jpand\\sec-analytics-pipeline\\cap-data-ingestion-demo\\consolidated\\scripts\\setup_phase3_analytics.py\", line 490, in run\n    console.print(f\"[red]\\u274c Phase 3 deployment failed: {e}[/red]\")\n  File \"C:\\Python311\\Lib\\site-packages\\rich\\console.py\", line 1697, in print\n    with self:\n  File \"C:\\Python311\\Lib\\site-packages\\rich\\console.py\", line 870, in __exit__\n    self._exit_buffer()\n  File \"C:\\Python311\\Lib\\site-packages\\rich\\console.py\", line 826, in _exit_buffer\n    self._check_buffer()\n  File \"C:\\Python311\\Lib\\site-packages\\rich\\console.py\", line 2038, in _check_buffer\n    self._write_buffer()\n  File \"C:\\Python311\\Lib\\site-packages\\rich\\console.py\", line 2074, in _write_buffer\n    legacy_windows_render(buffer, LegacyWindowsTerm(self.file))\n  File \"C:\\Python311\\Lib\\site-packages\\rich\\_windows_renderer.py\", line 17, in legacy_windows_render\n    term.write_styled(text, style)\n  File \"C:\\Python311\\Lib\\site-packages\\rich\\_win32_console.py\", line 441, in write_styled\n    self.write_text(text)\n  File \"C:\\Python311\\Lib\\site-packages\\rich\\_win32_console.py\", line 402, in write_text\n    self.write(text)\n  File \"C:\\Python311\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\U0001f50d' in position 0: character maps to <undefined>\n"
+      ],
+      "warnings": [],
+      "duration": 0.4320333003997803,
+      "screenshots": []
+    }
+  },
+  "errors": [],
+  "warnings": [
+    "Scenario security_incident issues",
+    "Scenario customer_onboarding issues",
+    "Scenario real_time_analytics issues"
+  ],
+  "screenshots_needed": [],
+  "metrics": {
+    "baseline_cost": 112.3543604779,
+    "validation_cost": 0.0
+  },
+  "end_to_end": {
+    "data_ingestion": false,
+    "data_processing": false,
+    "api_access": false,
+    "duration": 0.6975488662719727,
+    "errors": [
+      "Ingestion failed: Traceback (most recent call last):\n  File \"C:\\Users\\jpand\\sec-analytics-pipeline\\cap-data-ingestion-demo\\consolidated\\scripts\\produce_security_events.py\", line 217, in <module>\n    exit(main())\n         ^^^^^^\n  File \"C:\\Users\\jpand\\sec-analytics-pipeline\\cap-data-ingestion-demo\\consolidated\\scripts\\produce_security_events.py\", line 179, in main\n    print(\"\\U0001f9ea Running in test mode...\")\n  File \"C:\\Python311\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\U0001f9ea' in position 0: character maps to <undefined>\n",
+      "API issues: Traceback (most recent call last):\n  File \"C:\\Users\\jpand\\sec-analytics-pipeline\\cap-data-ingestion-demo\\consolidated\\tests\\test_customer_apis.py\", line 425, in <module>\n    exit(main())\n         ^^^^^^\n  File \"C:\\Users\\jpand\\sec-analytics-pipeline\\cap-data-ingestion-demo\\consolidated\\tests\\test_customer_apis.py\", line 418, in main\n    tester = CustomerAPITester()\n             ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jpand\\sec-analytics-pipeline\\cap-data-ingestion-demo\\consolidated\\tests\\test_customer_apis.py\", line 35, in __init__\n    print(\"\\U0001f9ea CAP Demo - Customer API Testing\")\n  File \"C:\\Python311\\Lib\\encodings\\cp1252.py\", line 19, in encode\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nUnicodeEncodeError: 'charmap' codec can't encode character '\\U0001f9ea' in position 0: character maps to <undefined>\n"
+    ]
+  },
+  "demo_scenarios": {
+    "security_incident": false,
+    "customer_onboarding": false,
+    "real_time_analytics": false
+  },
+  "performance": {
+    "response_times": {
+      "/health": 0.10101032257080078,
+      "/metrics": 0.10107803344726562,
+      "/security": 0.10076403617858887
+    },
+    "throughput": {
+      "events_per_second": 1000,
+      "api_requests_per_minute": 60
+    },
+    "resource_utilization": {},
+    "errors": []
+  },
+  "end_time": "2025-07-26T09:51:34.568758"
+}

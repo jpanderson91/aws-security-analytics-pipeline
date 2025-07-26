@@ -1,0 +1,29 @@
+{
+  "timestamp": "2025-07-26T10:26:44.056695",
+  "prerequisites": {
+    "python": true,
+    "boto3": true,
+    "terraform": true,
+    "aws_cli": true,
+    "aws_credentials": false
+  },
+  "scripts": {
+    "setup_phase1_msk.py": {
+      "status": "error",
+      "error": ""
+    },
+    "setup_phase2_ecs.py": {
+      "status": "missing",
+      "error": "File not found"
+    },
+    "setup_phase3_analytics.py": {
+      "status": "ready",
+      "help_output": "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 CAP Demo - Phase 3 Deployment                      \u2502\n\u2502 Deploying Customer Dashboards & Advanced Analytics \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500"
+    }
+  },
+  "windows_environment": {
+    "PYTHONIOENCODING": "utf-8",
+    "PYTHONUTF8": "1",
+    "LANG": "en_US.UTF-8"
+  }
+}

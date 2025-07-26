@@ -1,0 +1,80 @@
+{
+  "start_time": "2025-07-26T10:24:59.823334",
+  "phases": {
+    "Phase 1": {
+      "deployment": false,
+      "verification": false,
+      "errors": [
+        "Deployment failed: "
+      ],
+      "warnings": [],
+      "duration": 1.5006980895996094,
+      "screenshots": []
+    },
+    "Phase 2": {
+      "deployment": false,
+      "verification": false,
+      "errors": [
+        "Deployment failed: "
+      ],
+      "warnings": [],
+      "duration": 0.10900259017944336,
+      "screenshots": []
+    },
+    "Phase 3": {
+      "deployment": true,
+      "verification": false,
+      "errors": [],
+      "warnings": [
+        "Verification issues: "
+      ],
+      "duration": 5.98526668548584,
+      "screenshots": [
+        "API Gateway endpoints",
+        "QuickSight setup (if available)",
+        "Athena workgroup",
+        "Customer API responses"
+      ]
+    }
+  },
+  "errors": [],
+  "warnings": [
+    "Scenario security_incident issues",
+    "Scenario customer_onboarding issues",
+    "Scenario real_time_analytics issues"
+  ],
+  "screenshots_needed": [],
+  "metrics": {
+    "baseline_cost": 112.3543604779,
+    "validation_cost": 0.0
+  },
+  "end_to_end": {
+    "data_ingestion": false,
+    "data_processing": false,
+    "api_access": false,
+    "duration": 0.6280899047851562,
+    "errors": [
+      "Ingestion failed: ",
+      "API issues: "
+    ]
+  },
+  "demo_scenarios": {
+    "security_incident": false,
+    "customer_onboarding": false,
+    "real_time_analytics": false
+  },
+  "performance": {
+    "response_times": {
+      "/health": 0.10052919387817383,
+      "/metrics": 0.10061764717102051,
+      "/security": 0.10100317001342773
+    },
+    "throughput": {
+      "events_per_second": 1000,
+      "api_requests_per_minute": 60
+    },
+    "resource_utilization": {},
+    "errors": []
+  },
+  "end_time": "2025-07-26T10:25:13.064988"
+}

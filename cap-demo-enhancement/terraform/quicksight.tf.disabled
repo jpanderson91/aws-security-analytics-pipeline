@@ -1,0 +1,570 @@
+# ============================================================================
+# CAP Demo - Phase 3: QuickSight Dashboards & Analytics
+# Customer-facing dashboards and business intelligence layer
+# ============================================================================
+
+# ============================================================================
+# Data Sources and Analysis Preparation
+# ============================================================================
+
+# Athena workgroup for QuickSight data analysis
+resource "aws_athena_workgroup" "cap_demo_analytics" {
+  name        = "${var.environment}-${var.project_name}-analytics"
+  description = "Athena workgroup for CAP demo analytics and QuickSight"
+
+  configuration {
+    enforce_workgroup_configuration    = true
+    bytes_scanned_cutoff_per_query     = 104857600 # 100MB limit for cost control
+
+    result_configuration {
+      output_location = "s3://${var.environment}-${var.project_name}-analytics-results-${random_string.bucket_suffix.result}/athena-results/"
+
+      encryption_configuration {
+        encryption_option = "SSE_S3"
+      }
+    }
+  }
+
+  tags = merge(local.common_tags, {
+    Name        = "${local.name_prefix}-analytics-workgroup"
+    Component   = "analytics"
+    Phase       = "3"
+  })
+}
+
+# S3 bucket for Athena query results
+resource "aws_s3_bucket" "analytics_results" {
+  bucket = "${var.environment}-${var.project_name}-analytics-results-${random_string.bucket_suffix.result}"
+
+  tags = merge(local.common_tags, {
+    Name        = "${local.name_prefix}-analytics-results"
+    Component   = "analytics"
+    Phase       = "3"
+  })
+}
+
+resource "aws_s3_bucket_versioning" "analytics_results" {
+  bucket = aws_s3_bucket.analytics_results.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "analytics_results" {
+  bucket = aws_s3_bucket.analytics_results.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
+    }
+  }
+}
+
+resource "aws_s3_bucket_lifecycle_configuration" "analytics_results" {
+  bucket = aws_s3_bucket.analytics_results.id
+
+  rule {
+    id     = "analytics_lifecycle"
+    status = "Enabled"
+
+    expiration {
+      days = 30  # Query results expire after 30 days
+    }
+  }
+}
+
+# ============================================================================
+# AWS Glue Data Catalog for Schema Management
+# ============================================================================
+
+# Glue database for CAP demo data lake
+resource "aws_glue_catalog_database" "cap_demo_data_lake" {
+  name        = "${var.environment}_${var.project_name}_data_lake"
+  description = "Data catalog for CAP demo data lake (Bronze/Silver/Gold layers)"
+
+  tags = merge(local.common_tags, {
+    Name        = "${local.name_prefix}-data-catalog"
+    Component   = "analytics"
+    Phase       = "3"
+  })
+}
+
+# Glue table for security events (Bronze layer)
+resource "aws_glue_catalog_table" "security_events_bronze" {
+  name          = "security_events_bronze"
+  database_name = aws_glue_catalog_database.cap_demo_data_lake.name
+  description   = "Security events in Bronze layer (raw data)"
+
+  table_type = "EXTERNAL_TABLE"
+
+  parameters = {
+    "classification" = "json"
+    "typeOfData"     = "file"
+  }
+
+  storage_descriptor {
+    location      = "s3://${aws_s3_bucket.bronze_layer.bucket}/security-events/"
+    input_format  = "org.apache.hadoop.mapred.TextInputFormat"
+    output_format = "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat"
+
+    ser_de_info {
+      serialization_library = "org.openx.data.jsonserde.JsonSerDe"
+    }
+
+    columns {
+      name = "customer_id"
+      type = "string"
+    }
+
+    columns {
+      name = "event_id"
+      type = "string"
+    }
+
+    columns {
+      name = "timestamp"
+      type = "timestamp"
+    }
+
+    columns {
+      name = "event_type"
+      type = "string"
+    }
+
+    columns {
+      name = "severity"
+      type = "string"
+    }
+
+    columns {
+      name = "risk_score"
+      type = "int"
+    }
+
+    columns {
+      name = "threats_detected"
+      type = "array<string>"
+    }
+
+    columns {
+      name = "original_event"
+      type = "struct<message:string,source:string,details:map<string,string>>"
+    }
+  }
+
+  partition_keys {
+    name = "date"
+    type = "string"
+  }
+
+  partition_keys {
+    name = "hour"
+    type = "string"
+  }
+}
+
+# Glue table for application metrics (Silver layer)
+resource "aws_glue_catalog_table" "metrics_silver" {
+  name          = "application_metrics_silver"
+  database_name = aws_glue_catalog_database.cap_demo_data_lake.name
+  description   = "Aggregated application metrics in Silver layer"
+
+  table_type = "EXTERNAL_TABLE"
+
+  parameters = {
+    "classification" = "json"
+    "typeOfData"     = "file"
+  }
+
+  storage_descriptor {
+    location      = "s3://${aws_s3_bucket.silver_layer.bucket}/aggregated-metrics/"
+    input_format  = "org.apache.hadoop.mapred.TextInputFormat"
+    output_format = "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat"
+
+    ser_de_info {
+      serialization_library = "org.openx.data.jsonserde.JsonSerDe"
+    }
+
+    columns {
+      name = "customer_id"
+      type = "string"
+    }
+
+    columns {
+      name = "metric_type"
+      type = "string"
+    }
+
+    columns {
+      name = "window"
+      type = "string"
+    }
+
+    columns {
+      name = "aggregation_timestamp"
+      type = "timestamp"
+    }
+
+    columns {
+      name = "sample_count"
+      type = "int"
+    }
+
+    columns {
+      name = "avg_value"
+      type = "double"
+    }
+
+    columns {
+      name = "min_value"
+      type = "double"
+    }
+
+    columns {
+      name = "max_value"
+      type = "double"
+    }
+
+    columns {
+      name = "p95_value"
+      type = "double"
+    }
+
+    columns {
+      name = "p99_value"
+      type = "double"
+    }
+  }
+
+  partition_keys {
+    name = "date"
+    type = "string"
+  }
+
+  partition_keys {
+    name = "hour"
+    type = "string"
+  }
+}
+
+# ============================================================================
+# QuickSight Data Sources
+# ============================================================================
+
+# QuickSight data source for Athena
+resource "aws_quicksight_data_source" "cap_demo_athena" {
+  data_source_id = "${var.environment}-${var.project_name}-athena-source"
+  name           = "CAP Demo Data Lake"
+  type           = "ATHENA"
+
+  aws_account_id = data.aws_caller_identity.current.account_id
+
+  parameters {
+    athena {
+      work_group = aws_athena_workgroup.cap_demo_analytics.name
+    }
+  }
+
+  tags = merge(local.common_tags, {
+    Name        = "${local.name_prefix}-quicksight-data-source"
+    Component   = "analytics"
+    Phase       = "3"
+  })
+}
+
+# ============================================================================
+# QuickSight Datasets
+# ============================================================================
+
+# Dataset for security dashboard
+resource "aws_quicksight_data_set" "security_metrics" {
+  data_set_id    = "${var.environment}-${var.project_name}-security-metrics"
+  name           = "Security Metrics Dataset"
+  aws_account_id = data.aws_caller_identity.current.account_id
+
+  import_mode = "DIRECT_QUERY"
+
+  physical_table_map {
+    physical_table_id = "security_events_table"
+
+    custom_sql {
+      data_source_arn = aws_quicksight_data_source.cap_demo_athena.arn
+      name            = "SecurityEventsQuery"
+      sql_query = <<-SQL
+        SELECT 
+          customer_id,
+          event_type,
+          severity,
+          risk_score,
+          cardinality(threats_detected) as threat_count,
+          date_parse(date, '%Y/%m/%d') as event_date,
+          cast(hour as integer) as event_hour,
+          count(*) as event_count,
+          avg(risk_score) as avg_risk_score,
+          max(risk_score) as max_risk_score
+        FROM "${aws_glue_catalog_database.cap_demo_data_lake.name}"."${aws_glue_catalog_table.security_events_bronze.name}"
+        WHERE date >= date_format(date_add('day', -7, current_date), '%Y/%m/%d')
+        GROUP BY customer_id, event_type, severity, risk_score, threats_detected, date, hour
+        ORDER BY event_date DESC, event_hour DESC
+      SQL
+    }
+  }
+
+  tags = merge(local.common_tags, {
+    Name        = "${local.name_prefix}-security-dataset"
+    Component   = "analytics"
+    Phase       = "3"
+  })
+}
+
+# Dataset for performance dashboard
+resource "aws_quicksight_data_set" "performance_metrics" {
+  data_set_id    = "${var.environment}-${var.project_name}-performance-metrics"
+  name           = "Performance Metrics Dataset"
+  aws_account_id = data.aws_caller_identity.current.account_id
+
+  import_mode = "DIRECT_QUERY"
+
+  physical_table_map {
+    physical_table_id = "performance_metrics_table"
+
+    custom_sql {
+      data_source_arn = aws_quicksight_data_source.cap_demo_athena.arn
+      name            = "PerformanceMetricsQuery"
+      sql_query = <<-SQL
+        SELECT 
+          customer_id,
+          metric_type,
+          window,
+          date_parse(date, '%Y/%m/%d') as metric_date,
+          cast(hour as integer) as metric_hour,
+          avg(avg_value) as overall_avg,
+          min(min_value) as overall_min,
+          max(max_value) as overall_max,
+          avg(p95_value) as avg_p95,
+          avg(p99_value) as avg_p99,
+          count(*) as measurement_count
+        FROM "${aws_glue_catalog_database.cap_demo_data_lake.name}"."${aws_glue_catalog_table.metrics_silver.name}"
+        WHERE date >= date_format(date_add('day', -7, current_date), '%Y/%m/%d')
+        GROUP BY customer_id, metric_type, window, date, hour
+        ORDER BY metric_date DESC, metric_hour DESC
+      SQL
+    }
+  }
+
+  tags = merge(local.common_tags, {
+    Name        = "${local.name_prefix}-performance-dataset"
+    Component   = "analytics"
+    Phase       = "3"
+  })
+}
+
+# ============================================================================
+# QuickSight Dashboards
+# ============================================================================
+
+# Security Analytics Dashboard
+resource "aws_quicksight_dashboard" "security_analytics" {
+  dashboard_id   = "${var.environment}-${var.project_name}-security-dashboard"
+  name           = "CAP Demo - Security Analytics Dashboard"
+  aws_account_id = data.aws_caller_identity.current.account_id
+
+  definition {
+    data_set_identifiers_declarations {
+      data_set_arn         = aws_quicksight_data_set.security_metrics.arn
+      identifier           = "security_data"
+    }
+
+    # Security dashboard configuration
+    sheets {
+      sheet_id = "security_overview"
+      name     = "Security Overview"
+
+      visuals {
+        bar_chart_visual {
+          visual_id = "threat_types_chart"
+          title {
+            visibility = "VISIBLE"
+            title_text = "Threat Types by Customer"
+          }
+        }
+      }
+
+      visuals {
+        line_chart_visual {
+          visual_id = "risk_trend_chart"
+          title {
+            visibility = "VISIBLE"
+            title_text = "Risk Score Trend"
+          }
+        }
+      }
+
+      visuals {
+        kpi_visual {
+          visual_id = "total_threats_kpi"
+          title {
+            visibility = "VISIBLE"
+            title_text = "Total Threats Detected"
+          }
+        }
+      }
+    }
+  }
+
+  tags = merge(local.common_tags, {
+    Name        = "${local.name_prefix}-security-dashboard"
+    Component   = "analytics"
+    Phase       = "3"
+  })
+}
+
+# Performance Analytics Dashboard
+resource "aws_quicksight_dashboard" "performance_analytics" {
+  dashboard_id   = "${var.environment}-${var.project_name}-performance-dashboard"
+  name           = "CAP Demo - Performance Analytics Dashboard"
+  aws_account_id = data.aws_caller_identity.current.account_id
+
+  definition {
+    data_set_identifiers_declarations {
+      data_set_arn         = aws_quicksight_data_set.performance_metrics.arn
+      identifier           = "performance_data"
+    }
+
+    sheets {
+      sheet_id = "performance_overview"
+      name     = "Performance Overview"
+
+      visuals {
+        line_chart_visual {
+          visual_id = "response_time_trend"
+          title {
+            visibility = "VISIBLE"
+            title_text = "Response Time Trends"
+          }
+        }
+      }
+
+      visuals {
+        gauge_chart_visual {
+          visual_id = "sla_compliance_gauge"
+          title {
+            visibility = "VISIBLE"
+            title_text = "SLA Compliance"
+          }
+        }
+      }
+
+      visuals {
+        kpi_visual {
+          visual_id = "avg_performance_kpi"
+          title {
+            visibility = "VISIBLE"
+            title_text = "Average Performance"
+          }
+        }
+      }
+    }
+  }
+
+  tags = merge(local.common_tags, {
+    Name        = "${local.name_prefix}-performance-dashboard"
+    Component   = "analytics"
+    Phase       = "3"
+  })
+}
+
+# ============================================================================
+# IAM Roles for QuickSight
+# ============================================================================
+
+# QuickSight service role for Athena access
+resource "aws_iam_role" "quicksight_athena_role" {
+  name = "${var.environment}-${var.project_name}-quicksight-athena-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Principal = {
+          Service = "quicksight.amazonaws.com"
+        }
+      }
+    ]
+  })
+
+  tags = merge(local.common_tags, {
+    Name        = "${local.name_prefix}-quicksight-role"
+    Component   = "analytics"
+    Phase       = "3"
+  })
+}
+
+# Policy for QuickSight to access Athena and S3
+resource "aws_iam_role_policy" "quicksight_athena_policy" {
+  name = "${var.environment}-${var.project_name}-quicksight-athena-policy"
+  role = aws_iam_role.quicksight_athena_role.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "athena:BatchGetQueryExecution",
+          "athena:GetQueryExecution",
+          "athena:GetQueryResults",
+          "athena:GetWorkGroup",
+          "athena:ListQueryExecutions",
+          "athena:StartQueryExecution",
+          "athena:StopQueryExecution"
+        ]
+        Resource = [
+          aws_athena_workgroup.cap_demo_analytics.arn,
+          "arn:aws:athena:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:workgroup/${aws_athena_workgroup.cap_demo_analytics.name}"
+        ]
+      },
+      {
+        Effect = "Allow"
+        Action = [
+          "s3:GetBucketLocation",
+          "s3:GetObject",
+          "s3:ListBucket",
+          "s3:ListBucketMultipartUploads",
+          "s3:ListMultipartUploadParts",
+          "s3:AbortMultipartUpload",
+          "s3:PutObject"
+        ]
+        Resource = [
+          aws_s3_bucket.analytics_results.arn,
+          "${aws_s3_bucket.analytics_results.arn}/*",
+          "arn:aws:s3:::${aws_s3_bucket.bronze_layer.bucket}",
+          "arn:aws:s3:::${aws_s3_bucket.bronze_layer.bucket}/*",
+          "arn:aws:s3:::${aws_s3_bucket.silver_layer.bucket}",
+          "arn:aws:s3:::${aws_s3_bucket.silver_layer.bucket}/*"
+        ]
+      },
+      {
+        Effect = "Allow"
+        Action = [
+          "glue:GetDatabase",
+          "glue:GetTable",
+          "glue:GetPartitions",
+          "glue:BatchCreatePartition",
+          "glue:BatchDeletePartition",
+          "glue:BatchUpdatePartition"
+        ]
+        Resource = [
+          "arn:aws:glue:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:catalog",
+          "arn:aws:glue:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:database/${aws_glue_catalog_database.cap_demo_data_lake.name}",
+          "arn:aws:glue:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:table/${aws_glue_catalog_database.cap_demo_data_lake.name}/*"
+        ]
+      }
+    ]
+  })
+}
+
+# Data source for AWS region
+# data "aws_region" "current" {} // Removed duplicate - defined in ecs.tf

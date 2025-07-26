@@ -1,0 +1,18 @@
+{
+  "start_time": "2025-07-26T10:21:06.588937",
+  "phases": {},
+  "errors": [],
+  "warnings": [],
+  "demo_readiness": {},
+  "metrics": {},
+  "compatibility": {
+    "Phase 1": "\u26a0\ufe0f Issues detected",
+    "Phase 2": "\u2705 Syntax OK",
+    "Phase 3": "\u2705 Syntax OK",
+    "Validation": "\u2705 Syntax OK"
+  },
+  "infrastructure": {
+    "Infrastructure Check": "\u274c Error: An error occurred (UnrecognizedClientException) when calling the ListClusters operation: The securit..."
+  },
+  "end_time": "2025-07-26T10:21:09.938304"
+}

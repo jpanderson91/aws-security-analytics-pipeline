@@ -16,14 +16,13 @@ console = Console()
 def test_aws_connection():
     """Test AWS connectivity using current profile"""
     try:
-        session = boto3.Session(profile_name='cap-demo') # <--- ADD THIS LINE
-        sts = session.client('sts')
+        sts = boto3.client('sts')
         identity = sts.get_caller_identity()
         
         console.print("✅ AWS Connection:", style="green bold")
         console.print(f"   Account: {identity['Account']}")
         console.print(f"   User: {identity['Arn'].split('/')[-1]}")
-        console.print(f"   Region: {session.region_name or 'us-east-1'}")
+        console.print(f"   Region: {boto3.Session().region_name or 'us-east-1'}")
         return True
     except Exception as e:
         console.print(f"❌ AWS connection failed: {e}", style="red bold")
