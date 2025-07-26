@@ -1,4 +1,4 @@
-# AWS Security Analytics Pipeline (CAP)
+# Cloud Analytics Platform (CAP)
 
 🛡️ **Enterprise-grade security analytics pipeline for real-time threat detection and compliance monitoring**
 
