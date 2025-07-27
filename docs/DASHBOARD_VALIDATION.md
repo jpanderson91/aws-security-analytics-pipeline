@@ -30,9 +30,9 @@
 
 ### **📸 Visual Confirmation Available**
 Live screenshots of all working dashboards available in `docs/screenshots/`:
-- `security-analytics-dashboard.png` - Shows working pipeline with real data
-- `security-metrics-dashboard.png` - Displays 3 events, 0 errors, 138ms performance  
-- `cost-tracking-dashboard.png` - Resource utilization and cost tracking
+- `security analytics dashboard.png` - Shows working pipeline with real data
+- `security metrics dashboard.png` - Displays 3 events, 0 errors, 138ms performance  
+- `security cost dashboard.png` - Resource utilization and cost tracking
 
 ### **Security Analytics Dashboard** (Updated!)
 - ✅ **Lambda Performance**: Should show invocations, duration, errors, throttles ✅ **WORKING**

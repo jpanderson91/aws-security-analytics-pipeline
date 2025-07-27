@@ -1,6 +1,20 @@
 # AWS Security Analytics Pipeline
 
-[![Deploy Status](https://im• 🚀 [Quick Start Guide](QUICK_START.md) - Fast deployment
+[![Deploy Sta![Security Analytics Dashboard](docs/screenshots/security%20analytics%20dashbo### Security Analytics Dashboard
+![Security Analytics Dashboard](docs/screenshots/security%20analytics%20dashboard.png)
+**Production dashboard showing Lambda performance, Kinesis activity, and S3 data lake metrics**
+
+### Security Metrics Dashboard
+![Security Metrics Dashboard](docs/screenshots/security%20metrics%20dashboard.png)
+**Real-time processing metrics: 3 events processed, 0 errors, 138ms average response time**
+
+### Cost Tracking Dashboard
+![Cost Tracking Dashboard](docs/screenshots/security%20cost%20dashboard.png)**Security Analytics Dashboard** - Shows Lambda performance, Kinesis activity, and S3 data lake status
+
+![Security Metrics Dashboard](docs/screenshots/security%20metrics%20dashboard.png)
+**Security Metrics Dashboard** - Real-time metrics showing 3 events processed, 0 errors, 138ms avg processing time
+
+![Cost Tracking Dashboard](docs/screenshots/security%20cost%20dashboard.png)tps://im• 🚀 [Quick Start Guide](QUICK_START.md) - Fast deployment
 • 🏢 [Enterprise Demo](cap-demo-enhancement/) - Full platform simulation
 • 💰 [Cost Analysis](docs/cost-analysis.md) - Pricing breakdown
 • 🔧 [Operations Guide](docs/OPERATIONS_GUIDE.md) - Complete operational knowledgeields.io/badge/Deploy-Success-green)]() [![Cost Optimized](https://img.shields.io/badge/Cost-Optimized-blue)]() [![Portfolio Ready](https://img.shields.io/badge/Portfolio-Ready-brightgreen)]() [![AWS](https://img.shields.io/badge/AWS-Multi--Service-orange)]() [![Terraform](https://img.shields.io/badge/IaC-Terraform-purple)]()
@@ -48,13 +62,13 @@ This repository showcases **senior-level AWS capabilities** through two compleme
 
 ## 📸 **Live Dashboard Screenshots**
 
-![Security Analytics Dashboard](docs/screenshots/security-analytics-dashboard.png)
+![Security Analytics Dashboard](docs/screenshots/security%20analytics%20dashboard.png)
 *Security Analytics Dashboard - Shows Lambda performance, Kinesis activity, and S3 data lake status*
 
-![Security Metrics Dashboard](docs/screenshots/security-metrics-dashboard.png)
+![Security Metrics Dashboard](docs/screenshots/security%20metrics%20dashboard.png)
 *Security Metrics Dashboard - Real-time metrics showing 3 events processed, 0 errors, 138ms avg processing time*
 
-![Cost Tracking Dashboard](docs/screenshots/cost-tracking-dashboard.png)
+![Cost Tracking Dashboard](docs/screenshots/security%20cost%20dashboard.png)
 *Cost Tracking Dashboard - Resource utilization and cost optimization monitoring*
 
 > 🎯 **Portfolio Demonstration**: These screenshots show a live, working AWS security analytics pipeline processing real data with zero errors and fast performance.
