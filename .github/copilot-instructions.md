@@ -22,11 +22,11 @@
 ## 📋 PROJECT CONTEXT
 
 ### Core Purpose
-Enterprise-grade security analytics pipeline demonstrating AWS, DevOps, and Data Engineering expertise for portfolio and Toyota CAP alignment.
+Enterprise-grade security analytics pipeline demonstrating AWS, DevOps, and Data Engineering expertise for portfolio and enterprise alignment.
 
 ### Key Components
 1. **Basic Pipeline**: Kinesis → Lambda → S3 ($15/month)
-2. **CAP Demo**: MSK Kafka + ECS + advanced features ($100-200/month)
+2. **Enterprise Demo**: MSK Kafka + ECS + advanced features ($100-200/month)
 3. **Documentation**: Professional portfolio presentation
 4. **Validation**: Working dashboards and live metrics
 
@@ -94,7 +94,7 @@ aws sts get-caller-identity
 ### Target Audiences
 - **Hiring Managers**: Working infrastructure proof
 - **Technical Teams**: Code quality and architecture
-- **Enterprise Stakeholders**: Toyota CAP alignment
+- **Enterprise Stakeholders**: Enterprise alignment
 
 ## 🔒 SECURITY & COMPLIANCE
 
@@ -143,14 +143,14 @@ aws sts get-caller-identity
 ### Code Comments
 - Explain AWS resource purposes
 - Include cost implications
-- Reference Toyota CAP alignment where applicable
+- Reference enterprise alignment where applicable
 - Provide troubleshooting guidance
 
 ### README Updates
 - Maintain portfolio demonstration focus
 - Keep deployment instructions current
 - Include live dashboard screenshots
-- Provide clear choice between basic/CAP options
+- Provide clear choice between basic/enterprise options
 
 ## ⚠️ CRITICAL REMINDERS
 

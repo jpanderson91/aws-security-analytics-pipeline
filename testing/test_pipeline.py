@@ -6,7 +6,7 @@ This script demonstrates the complete functionality of the security analytics pi
 by sending test events through Kinesis and verifying the processing pipeline.
 
 Author: Portfolio Demonstration
-Purpose: Toyota RSOC Security Analytics Demo
+Purpose: Enterprise SOC Security Analytics Demo
 """
 
 import json
@@ -386,7 +386,7 @@ def display_portfolio_summary():
    - Add machine learning for anomaly detection
 
 This demonstrates enterprise-grade AWS security operations capabilities
-suitable for Toyota's RSOC requirements.
+suitable for enterprise SOC requirements.
     """)
 
 def main():

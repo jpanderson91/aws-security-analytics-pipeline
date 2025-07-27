@@ -65,7 +65,7 @@ You should now have:
 Open the URLs from `terraform output` to see your live metrics.
 
 ### 🏢 **Try Enterprise Features**
-Explore the [CAP Demo](cap-demo-enhancement/) for advanced MSK Kafka and ECS features.
+Explore the [Enterprise Demo](cap-demo-enhancement/) for advanced MSK Kafka and ECS features.
 
 ### 🧹 **Clean Up**
 ```bash

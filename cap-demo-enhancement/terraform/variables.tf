@@ -1,7 +1,7 @@
 # ============================================================================
 # CAP Demo - Variable Definitions and Configuration Management
 # ============================================================================
-# Purpose: Centralized configuration management for Toyota CAP demo environment
+# Purpose: Centralized configuration management for enterprise demo environment
 # 
 # This file defines all configurable parameters for the complete CAP demo
 # infrastructure across all phases (MSK, ECS, Lambda, S3, Analytics).
@@ -43,7 +43,7 @@ variable "common_tags" {
     Environment  = "dev"
     ManagedBy    = "terraform"
     Owner        = "cap-team"
-    Purpose      = "toyota-interview-demo"
+    Purpose      = "enterprise-interview-demo"
     CostCategory = "demo-infrastructure"
   }
 }

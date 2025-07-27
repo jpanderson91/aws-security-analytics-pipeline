@@ -1,7 +1,7 @@
 # ============================================================================
 # CAP Demo - Core Infrastructure Configuration
 # ============================================================================
-# Purpose: Terraform foundation for Toyota CAP-style data ingestion platform
+# Purpose: Terraform foundation for enterprise data ingestion platform
 # Phase 1: MSK Kafka Foundation - Enterprise streaming architecture
 # Date: July 25, 2025
 # 

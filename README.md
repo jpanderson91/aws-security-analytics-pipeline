@@ -13,12 +13,12 @@ Complete security analytics pipeline with real-time processing and monitoring.
 **Perfect for:** Portfolio demonstrations, interviews, personal projects  
 **→ [Deploy Basic Pipeline](README.md#basic-deployment)**
 
-### 🏢 **Enterprise CAP Demo** - Full Toyota Architecture ($100-200/month)
+### 🏢 **Enterprise Data Platform Demo** - Full Enterprise Architecture ($100-200/month)
 Complete Cloud Analytics Platform simulation with MSK Kafka, ECS, and advanced features.
 
 **Features:** MSK Kafka, ECS services, Bronze/Silver/Gold data tiers, Customer APIs  
-**Perfect for:** Enterprise demos, technical deep-dives, CAP team alignment  
-**→ [Deploy CAP Demo](cap-demo-enhancement/)**
+**Perfect for:** Enterprise demos, technical deep-dives, team alignment  
+**→ [Deploy Enterprise Demo](cap-demo-enhancement/)**
 
 ---
 
@@ -26,15 +26,15 @@ Complete Cloud Analytics Platform simulation with MSK Kafka, ECS, and advanced f
 
 This repository showcases **senior-level AWS capabilities** through two complementary projects:
 
-### 🏢 **Enterprise CAP Architecture** 
-- **Toyota CAP Simulation**: Real MSK Kafka cluster with ECS container orchestration
+### 🏢 **Enterprise Cloud Platform Architecture** 
+- **Enterprise Simulation**: Real MSK Kafka cluster with ECS container orchestration
 - **Multi-Tier Processing**: Bronze/Silver/Gold data pipeline architecture
 - **Customer Workflows**: JIRA ticket simulation and onboarding automation
 - **Advanced Analytics**: API Gateway endpoints and QuickSight dashboards
 
 ## 📊 **Technical Skills Demonstrated**
 
-| Skill Area | Basic Pipeline | CAP Demo |
+| Skill Area | Basic Pipeline | Enterprise Demo |
 |------------|----------------|-----------|
 | **Infrastructure as Code** | ✅ Terraform | ✅ Advanced Terraform Modules |
 | **Serverless Architecture** | ✅ Lambda + Kinesis | ✅ Lambda + ECS + MSK |
@@ -56,7 +56,7 @@ This repository showcases **senior-level AWS capabilities** through two compleme
 
 > 🎯 **Portfolio Demonstration**: These screenshots show a live, working AWS security analytics pipeline processing real data with zero errors and fast performance.
 
-> *Designed for RSOC (Regional Security Operations Center) requirements - demonstrating expertise in AWS security services, event-driven architecture, and cost optimization strategies.*
+> *Designed for SOC (Security Operations Center) requirements - demonstrating expertise in AWS security services, event-driven architecture, and cost optimization strategies.*
 
 ## 🏗️ Architecture
 
@@ -311,7 +311,7 @@ graph TB
 | Document | Purpose | Audience |
 |----------|---------|----------|
 | [**Basic Pipeline**](README.md#basic-deployment) | Quick deployment guide | Everyone |
-| [**CAP Demo**](cap-demo-enhancement/) | Enterprise architecture | Technical stakeholders |
+| [**Enterprise Demo**](cap-demo-enhancement/) | Enterprise architecture | Technical stakeholders |
 | [**Project Status**](docs/PROJECT_STATUS.md) | Portfolio summary | Hiring managers |
 | [**Issue Resolution**](docs/ISSUE_TRACKING.md) | Problem-solving skills | Technical interviewers |
 | [**Cost Analysis**](docs/cost-analysis.md) | Financial responsibility | Management |
@@ -334,7 +334,7 @@ graph TB
 - ✅ **Monitoring & Observability** - Comprehensive CloudWatch integration
 
 ### **For Enterprise Stakeholders:**
-- ✅ **Toyota CAP Alignment** - Real MSK Kafka and ECS architecture in [CAP Demo](cap-demo-enhancement/)
+- ✅ **Enterprise Alignment** - Real MSK Kafka and ECS architecture in [Enterprise Demo](cap-demo-enhancement/)
 - ✅ **Scalable Design** - From $15/month to enterprise-scale deployment options
 - ✅ **Compliance Ready** - Audit logging, encryption, and data governance
 - ✅ **Multi-tier Processing** - Bronze/Silver/Gold data lake architecture
@@ -346,7 +346,7 @@ graph TB
 **This repository demonstrates senior-level AWS and DevOps capabilities through:**
 
 1. **Proven Production Systems** - Working infrastructure with live monitoring
-2. **Enterprise Architecture** - Complete CAP simulation with advanced features  
+2. **Enterprise Architecture** - Complete platform simulation with advanced features  
 3. **Cost Engineering** - Smart resource optimization and financial responsibility
 4. **Professional Execution** - Documentation, testing, and issue resolution
 
@@ -366,7 +366,7 @@ graph TB
 
 ## 📞 Support
 
-For questions about this implementation or Toyota RSOC integration:
+For questions about this implementation or enterprise SOC integration:
 
 - **Technical Documentation**: See `/docs` directory
 - **Architecture Questions**: Review architecture diagrams
@@ -378,4 +378,4 @@ For questions about this implementation or Toyota RSOC integration:
 **Project Status**: ✅ Production Ready  
 **Last Updated**: July 2025  
 **AWS Services**: 8+ integrated services  
-**Security Focus**: Toyota RSOC alignment
+**Security Focus**: Enterprise SOC alignment

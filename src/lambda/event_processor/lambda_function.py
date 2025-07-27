@@ -5,7 +5,7 @@ This Lambda function processes security events from Kinesis streams,
 enriches the data, and stores it in S3 for further analysis.
 
 Author: Portfolio Demonstration
-Purpose: Toyota RSOC Security Analytics
+Purpose: Enterprise SOC Security Analytics
 """
 
 import json
