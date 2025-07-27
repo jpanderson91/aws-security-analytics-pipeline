@@ -172,7 +172,7 @@ terraform destroy -auto-approve
 
 ### Get Help
 - **Documentation**: See `/docs` directory
-- **Issue Tracking**: Check `docs/ISSUE_TRACKING.md`
+- **Operations Guide**: Check `docs/OPERATIONS_GUIDE.md`
 - **Architecture**: Review `docs/ARCHITECTURE.md`
 
 ---

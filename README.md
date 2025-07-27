@@ -1,6 +1,9 @@
 # AWS Security Analytics Pipeline
 
-[![Deploy Status](https://img.shields.io/badge/Deploy-Success-green)]() [![Cost Optimized](https://img.shields.io/badge/Cost-Optimized-blue)]() [![Portfolio Ready](https://img.shields.io/badge/Portfolio-Ready-brightgreen)]() [![AWS](https://img.shields.io/badge/AWS-Multi--Service-orange)]() [![Terraform](https://img.shields.io/badge/IaC-Terraform-purple)]()
+[![Deploy Status](https://im• 🚀 [Quick Start Guide](QUICK_START.md) - Fast deployment
+• 🏢 [Enterprise Demo](cap-demo-enhancement/) - Full platform simulation
+• 💰 [Cost Analysis](docs/cost-analysis.md) - Pricing breakdown
+• 🔧 [Operations Guide](docs/OPERATIONS_GUIDE.md) - Complete operational knowledgeields.io/badge/Deploy-Success-green)]() [![Cost Optimized](https://img.shields.io/badge/Cost-Optimized-blue)]() [![Portfolio Ready](https://img.shields.io/badge/Portfolio-Ready-brightgreen)]() [![AWS](https://img.shields.io/badge/AWS-Multi--Service-orange)]() [![Terraform](https://img.shields.io/badge/IaC-Terraform-purple)]()
 
 > 🛡️ **Enterprise-grade security analytics pipeline demonstrating AWS, DevOps, and Data Engineering expertise**
 
@@ -220,17 +223,24 @@ python test_pipeline.py
 ```
 aws-security-analytics-pipeline/
 ├── docs/                   # 📋 Complete documentation
-│   ├── DASHBOARD_VALIDATION.md  # Dashboard URLs & validation guide
-│   ├── ISSUE_TRACKING.md       # Complete issue resolution log
-│   ├── PROJECT_STATUS.md       # Portfolio status summary
-│   ├── cost-analysis.md        # Cost optimization analysis
-│   ├── PROJECT_1_CLEANUP_SUMMARY.md # Resource cleanup documentation
-│   └── screenshots/            # Professional dashboard images
-├── src/                    # 💻 Source code
+│   ├── INDEX.md               # Documentation navigation hub
+│   ├── OPERATIONS_GUIDE.md    # Complete operational knowledge
+│   ├── PROJECT_JOURNEY.md     # Development story and decisions
+│   ├── cost-analysis.md       # Cost optimization analysis
+│   ├── SECURITY_CHECKLIST.md  # Security validation procedures
+│   ├── PROJECT_STATUS.md      # Current project status
+│   ├── archive/               # Historical documentation
+│   └── screenshots/           # Professional dashboard images
+├── cap-demo-enhancement/   # 🏢 Enterprise demo platform
+│   ├── docs/                  # Enterprise-specific documentation
+│   ├── terraform/             # Enterprise infrastructure
+│   ├── src/                   # Enterprise source code
+│   └── scripts/               # Enterprise deployment scripts
+├── src/                    # 💻 Basic pipeline source code
 │   ├── deploy.py          # Deployment automation script
 │   └── lambda/            # Lambda function code
 │       └── event_processor/    # Main event processing function
-├── terraform/             # 🏗️ Infrastructure as Code
+├── terraform/             # 🏗️ Basic pipeline Infrastructure as Code
 │   ├── main.tf           # Core infrastructure configuration
 │   ├── dashboards.tf     # CloudWatch dashboards
 │   ├── variables.tf      # Input variables
@@ -238,7 +248,10 @@ aws-security-analytics-pipeline/
 ├── testing/               # 🧪 Testing & validation
 │   ├── test_pipeline.py  # End-to-end pipeline testing
 │   └── dashboard_configs/ # Fixed dashboard JSON configurations
-├── PROJECT_1_COMPLETE.md  # Final project summary
+├── scripts/               # 🔧 Utility scripts
+├── templates/             # 📋 Project templates
+├── PROJECT_1_COMPLETE.md  # Project completion summary
+├── QUICK_START.md         # Fast deployment guide
 └── README.md              # This file
 ```
 
@@ -322,8 +335,8 @@ graph TB
 |----------|---------|----------|
 | [**Basic Pipeline**](README.md#basic-deployment) | Quick deployment guide | Everyone |
 | [**Enterprise Demo**](cap-demo-enhancement/) | Enterprise architecture | Technical stakeholders |
-| [**Project Status**](docs/PROJECT_STATUS.md) | Portfolio summary | Hiring managers |
-| [**Issue Resolution**](docs/ISSUE_TRACKING.md) | Problem-solving skills | Technical interviewers |
+| [**Project Journey**](docs/PROJECT_JOURNEY.md) | Development story | Portfolio reviewers |
+| [**Operations Guide**](docs/OPERATIONS_GUIDE.md) | Operational knowledge | Technical teams |
 | [**Cost Analysis**](docs/cost-analysis.md) | Financial responsibility | Management |
 | [**Dashboard Validation**](docs/DASHBOARD_VALIDATION.md) | Live proof of concept | Demonstrations |
 

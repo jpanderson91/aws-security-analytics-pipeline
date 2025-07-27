@@ -82,7 +82,7 @@ terraform destroy -auto-approve
 | **Lambda not found** | Wait 2-3 minutes for deployment |
 | **No dashboard data** | Run `python test_pipeline.py` |
 
-**Need help?** Check the [complete troubleshooting guide](docs/ISSUE_TRACKING.md).
+**Need help?** Check the [complete operations guide](docs/OPERATIONS_GUIDE.md).
 
 ---
 

@@ -167,7 +167,7 @@ terraform output dashboard_urls
 | [**Basic Deployment**](README.md#basic-deployment) | Quick deployment guide | Everyone |
 | [**Enterprise Demo**](enterprise-demo/) | Advanced architecture | Technical stakeholders |
 | [**Project Status**](docs/PROJECT_STATUS.md) | Portfolio summary | Hiring managers |
-| [**Issue Resolution**](docs/ISSUE_TRACKING.md) | Problem-solving skills | Technical interviewers |
+| [**Operations Guide**](docs/OPERATIONS_GUIDE.md) | Operational knowledge | Technical teams |
 | [**Cost Analysis**](docs/cost-analysis.md) | Financial responsibility | Management |
 | [**Security Checklist**](docs/SECURITY_CHECKLIST.md) | Security verification | Security teams |
 
