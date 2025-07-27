@@ -89,7 +89,7 @@ For detailed script documentation, see individual script headers.
 
 $scriptsReadmeContent | Out-File -FilePath "scripts\README.md" -Encoding UTF8
 
-# Create README for aws-session directory  
+# Create README for aws-session directory
 $awsSessionReadmeContent = @"
 # AWS Session Management Scripts
 

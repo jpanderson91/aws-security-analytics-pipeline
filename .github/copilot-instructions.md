@@ -228,7 +228,7 @@ Based on deployment retrospective (July 27, 2025), terminal visibility is a crit
 
 ### Required Terminal Practices
 - **ALWAYS** ask user to share terminal output after background commands
-- **REQUEST** specific terminal output when troubleshooting deployment issues  
+- **REQUEST** specific terminal output when troubleshooting deployment issues
 - **USE** existing terminals instead of creating multiple new instances
 - **PROVIDE** explicit PowerShell navigation commands when directory issues occur
 - **DOCUMENT** terminal session results for debugging context

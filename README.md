@@ -58,6 +58,16 @@ This repository showcases **senior-level AWS capabilities** through two compleme
 
 > *Designed for SOC (Security Operations Center) requirements - demonstrating expertise in AWS security services, event-driven architecture, and cost optimization strategies.*
 
+## 📚 **Documentation Navigation**
+
+**📋 [Complete Documentation Index](docs/INDEX.md)** - Navigate all project documentation
+
+**Quick Links:**
+- 🚀 [Quick Start Guide](QUICK_START.md) - Fast deployment
+- 🏢 [Enterprise Demo](cap-demo-enhancement/) - Full platform simulation
+- 💰 [Cost Analysis](docs/cost-analysis.md) - Pricing breakdown
+- 🔧 [Deployment Issues](docs/DEPLOYMENT_ISSUES_RETROSPECTIVE.md) - Troubleshooting guide
+
 ## 🏗️ Architecture
 
 ```mermaid
