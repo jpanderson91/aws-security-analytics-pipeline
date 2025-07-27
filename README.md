@@ -86,13 +86,13 @@ This repository showcases **senior-level AWS capabilities** through two compleme
 
 ## 📸 **Live Dashboard Screenshots**
 
-![Security Analytics Dashboard](docs/screenshots/security%20analytics%20dashboard.png)
+![Security Analytics Dashboard](docs/screenshots/security-analytics-dashboard.png)
 *Security Analytics Dashboard - Shows Lambda performance, Kinesis activity, and S3 data lake status*
 
-![Security Metrics Dashboard](docs/screenshots/security%20metrics%20dashboard.png)
+![Security Metrics Dashboard](docs/screenshots/security-metrics-dashboard.png)
 *Security Metrics Dashboard - Real-time metrics showing 3 events processed, 0 errors, 138ms avg processing time*
 
-![Cost Tracking Dashboard](docs/screenshots/security%20cost%20dashboard.png)
+![Cost Tracking Dashboard](docs/screenshots/security-cost-dashboard.png)
 *Cost Tracking Dashboard - Resource utilization and cost optimization monitoring*
 
 > 🎯 **Portfolio Demonstration**: These screenshots show a live, working AWS security analytics pipeline processing real data with zero errors and fast performance.

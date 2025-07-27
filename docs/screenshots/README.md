@@ -31,9 +31,9 @@ This folder contains comprehensive screenshots of the deployed AWS infrastructur
 
 ### **📊 CloudWatch Monitoring**
 - `cloudwatch metrics dashboard *.png` - Service-specific monitoring
-- `security analytics dashboard.png` - Custom business dashboard
-- `security metrics dashboard.png` - KPI tracking
-- `security cost dashboard.png` - Cost optimization
+- `security-analytics-dashboard.png` - Custom business dashboard
+- `security-metrics-dashboard.png` - KPI tracking
+- `security-cost-dashboard.png` - Cost optimization
 
 ### **🌐 API Gateway**
 - `api gateway dashboard.png` - API management
