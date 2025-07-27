@@ -31,7 +31,7 @@
 ### **📸 Visual Confirmation Available**
 Live screenshots of all working dashboards available in `docs/screenshots/`:
 - `security analytics dashboard.png` - Shows working pipeline with real data
-- `security metrics dashboard.png` - Displays 3 events, 0 errors, 138ms performance  
+- `security metrics dashboard.png` - Displays 3 events, 0 errors, 138ms performance
 - `security cost dashboard.png` - Resource utilization and cost tracking
 
 ### **Security Analytics Dashboard** (Updated!)

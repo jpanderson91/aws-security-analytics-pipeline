@@ -1,23 +1,33 @@
 # AWS Security Analytics Pipeline
 
-[![Deploy Sta![Security Analytics Dashboard](docs/screenshots/security%20analytics%20dashbo### Security Analytics Dashboard
-![Security Analytics Dashboard](docs/screenshots/security%20analytics%20dashboard.png)
-**Production dashboard showing Lambda performance, Kinesis activity, and S3 data lake metrics**
+[![Deploy Status](https://img.shields.io/badge/Deploy-Success-green)]() [![Cost Optimized](htt#### 🎯 **##### 🛠️ **Ente---
 
-### Security Metrics Dashboard
-![Security Metrics Dashboard](docs/screenshots/security%20metrics%20dashboard.png)
-**Real-time processing metrics: 3 events processed, 0 errors, 138ms average response time**
+## 🚀 **Basic Deployment***Infrastructure as Code**: Complete Terraform deployment
+- **Monitoring & Logging**: CloudWatch integration with custom dashboards
+- **Error Handling**: Comprehensive exception management
+- **Type Safety**: Full Python type hints
 
-### Cost Tracking Dashboard
-![Cost Tracking Dashboard](docs/screenshots/security%20cost%20dashboard.png)**Security Analytics Dashboard** - Shows Lambda performance, Kinesis activity, and S3 data lake status
+---
 
-![Security Metrics Dashboard](docs/screenshots/security%20metrics%20dashboard.png)
-**Security Metrics Dashboard** - Real-time metrics showing 3 events processed, 0 errors, 138ms avg processing time
+## 🚀 **Basic Deployment**tion Results**
 
-![Cost Tracking Dashboard](docs/screenshots/security%20cost%20dashboard.png)tps://im• 🚀 [Quick Start Guide](QUICK_START.md) - Fast deployment
-• 🏢 [Enterprise Demo](cap-demo-enhancement/) - Full platform simulation
-• 💰 [Cost Analysis](docs/cost-analysis.md) - Pricing breakdown
-• 🔧 [Operations Guide](docs/OPERATIONS_GUIDE.md) - Complete operational knowledgeields.io/badge/Deploy-Success-green)]() [![Cost Optimized](https://img.shields.io/badge/Cost-Optimized-blue)]() [![Portfolio Ready](https://img.shields.io/badge/Portfolio-Ready-brightgreen)]() [![AWS](https://img.shields.io/badge/AWS-Multi--Service-orange)]() [![Terraform](https://img.shields.io/badge/IaC-Terraform-purple)]()
+The screenshots below demonstrate actual production deployment results with real AWS resource activity and metrics.
+
+> 🎯 **Portfolio Evidence**: These screenshots prove live, working AWS infrastructure processing real security events with enterprise-grade monitoring.
+
+---
+
+## 🚀 **Basic Deployment**uction Results**
+
+The screenshots below demonstrate actual production deployment results with real AWS resource activity and metrics.
+
+> 🎯 **Portfolio Evidence**: These screenshots prove live, working AWS infrastructure processing real security events with enterprise-grade monitoring.
+
+---
+
+## 🚀 **Basic Deployment**on Results**
+
+The screenshots below demonstrate actual production deployment results with real AWS resource activity and metrics.lds.io/badge/Cost-Optimized-blue)]() [![Portfolio Ready](https://img.shields.io/badge/Portfolio-Ready-brightgreen)]() [![AWS](https://img.shields.io/badge/AWS-Multi--Service-orange)]() [![Terraform](https://img.shields.io/badge/IaC-Terraform-purple)]()
 
 > 🛡️ **Enterprise-grade security analytics pipeline demonstrating AWS, DevOps, and Data Engineering expertise**
 
@@ -43,11 +53,25 @@ Complete Cloud Analytics Platform simulation with MSK Kafka, ECS, and advanced f
 
 This repository showcases **senior-level AWS capabilities** through two complementary projects:
 
-### 🏢 **Enterprise Cloud Platform Architecture**
-- **Enterprise Simulation**: Real MSK Kafka cluster with ECS container orchestration
-- **Multi-Tier Processing**: Bronze/Silver/Gold data pipeline architecture
-- **Customer Workflows**: JIRA ticket simulation and onboarding automation
-- **Advanced Analytics**: API Gateway endpoints and QuickSight dashboards
+### ⚡ **Basic Pipeline** - Production Ready ($15/month)
+Complete security analytics pipeline with real-time processing and monitoring.
+
+**Features:** Kinesis → Lambda → S3, CloudWatch dashboards, cost-optimized
+**Perfect for:** Portfolio demonstrations, interviews, personal projects
+**→ [Deploy Basic Pipeline](README.md#basic-deployment)**
+
+### 🏢 **Enterprise Data Platform Demo** - Full Enterprise Architecture ($100-200/month)
+Complete Cloud Analytics Platform simulation with MSK Kafka, ECS, and advanced features.
+
+**Features:** MSK Kafka, ECS services, Bronze/Silver/Gold data tiers, Customer APIs
+**Perfect for:** Enterprise demos, technical deep-dives, team alignment
+**→ [Deploy Enterprise Demo](cap-demo-enhancement/)**
+
+---
+
+## 🏆 **Portfolio Demonstration**
+
+This repository showcases **senior-level AWS capabilities** through two complementary projects designed to demonstrate enterprise-grade cloud architecture and cost-effective deployment strategies.
 
 ## 📊 **Technical Skills Demonstrated**
 
