@@ -159,7 +159,10 @@ resource "aws_kms_key" "s3_data_lake" {
         Sid    = "Allow ECS Tasks"
         Effect = "Allow"
         Principal = {
-          AWS = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${var.environment}-${var.project_name}-ecs-task-*"
+          AWS = [
+            aws_iam_role.ecs_task_role.arn,
+            aws_iam_role.lambda_execution_role.arn
+          ]
         }
         Action = [
           "kms:Encrypt",
@@ -224,7 +227,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "bronze_layer" {
   rule {
     id     = "bronze_data_lifecycle"
     status = "Enabled"
-    
+
     filter {
       prefix = ""
     }
@@ -265,7 +268,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "silver_layer" {
   rule {
     id     = "silver_data_lifecycle"
     status = "Enabled"
-    
+
     filter {
       prefix = ""
     }
@@ -304,7 +307,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "gold_layer" {
   rule {
     id     = "gold_data_lifecycle"
     status = "Enabled"
-    
+
     filter {
       prefix = ""
     }
@@ -452,7 +455,7 @@ resource "aws_cloudwatch_log_group" "s3_access_logs" {
   retention_in_days = var.log_retention_days
 
   # Enable encryption for access logs
-  kms_key_id = var.enable_log_encryption ? aws_kms_key.s3_data_lake.arn : null
+  kms_key_id = var.enable_log_encryption ? aws_kms_key.logs[0].arn : null
 
   tags = merge(var.common_tags, {
     Name       = "${var.environment}-${var.project_name}-s3-access-logs"

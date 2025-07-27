@@ -121,29 +121,28 @@ resource "aws_msk_configuration" "cap_demo" {
   # These settings balance performance, reliability, and resource usage
   server_properties = <<-EOT
     # Topic Management Settings
-    auto.create.topics.enable=true        # Allow automatic topic creation for demo ease
-    default.replication.factor=2          # 2x replication for data durability (3 brokers)
-    min.insync.replicas=1                 # Minimum replicas for write acknowledgment
-    num.partitions=3                      # Default partitions per topic for parallelism
-    
+    auto.create.topics.enable=true
+    default.replication.factor=2
+    min.insync.replicas=1
+    num.partitions=3
+
     # Data Retention Settings - optimized for demo environment
-    log.retention.hours=24                # 24-hour retention (demo appropriate)
-    log.retention.bytes=1073741824        # 1GB max per partition (cost control)
-    log.segment.bytes=104857600           # 100MB segments for efficient storage
-    
+    log.retention.hours=24
+    log.retention.bytes=1073741824
+    log.segment.bytes=104857600
+
     # Performance Settings - tuned for t3.small instances (2 vCPU, 2GB RAM)
-    num.network.threads=3                 # Network I/O threads (optimal for small instances)
-    num.io.threads=8                      # Disk I/O threads (balance performance/resources)
-    socket.send.buffer.bytes=102400       # 100KB send buffer (network optimization)
-    socket.receive.buffer.bytes=102400    # 100KB receive buffer (network optimization)
-    socket.request.max.bytes=104857600    # 100MB max request size
-    
+    num.network.threads=3
+    num.io.threads=8
+    socket.send.buffer.bytes=102400
+    socket.receive.buffer.bytes=102400
+    socket.request.max.bytes=104857600
+
     # Producer/Consumer Optimization
-    replica.fetch.max.bytes=1048576       # 1MB max fetch size for replication
-    message.max.bytes=1000000             # 1MB max message size (reasonable for most data)
-    
-    # Monitoring and Management
-    jmx.reporter.enabled=true             # Enable JMX for monitoring integration
+    replica.fetch.max.bytes=1048576
+    message.max.bytes=1000000
+
+    # Monitoring configuration removed - using CloudWatch instead
   EOT
 }
 
@@ -179,11 +178,8 @@ resource "aws_msk_cluster" "cap_demo" {
   }
 
   # Client authentication configuration
-  # Supports both TLS and unauthenticated access for demo flexibility
+  # Supports unauthenticated access for demo simplicity and reliability
   client_authentication {
-    tls {
-      certificate_authority_arns = [] # No custom CAs for demo simplicity
-    }
     unauthenticated = true # Allow unauthenticated access for demo ease
   }
 

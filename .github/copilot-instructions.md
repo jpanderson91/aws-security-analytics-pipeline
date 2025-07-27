@@ -221,7 +221,42 @@ When working across multiple interactions:
 - **MAINTAIN** focus on original objectives without shortcuts
 - **🚨 SANITIZE** all outputs for public safety and professional standards
 
-## 📋 SANITIZATION ENFORCEMENT
+## �️ TERMINAL WORKFLOW STANDARDS
+
+### Critical Terminal Output Issues
+Based on deployment retrospective (July 27, 2025), terminal visibility is a critical workflow blocker.
+
+### Required Terminal Practices
+- **ALWAYS** ask user to share terminal output after background commands
+- **REQUEST** specific terminal output when troubleshooting deployment issues  
+- **USE** existing terminals instead of creating multiple new instances
+- **PROVIDE** explicit PowerShell navigation commands when directory issues occur
+- **DOCUMENT** terminal session results for debugging context
+
+### Terminal Command Standards
+```powershell
+# Always use explicit paths to avoid directory confusion
+cd C:\Projects\aws-security-analytics-pipeline\cap-demo-enhancement\terraform
+terraform apply -auto-approve
+
+# When issues occur, request manual output sharing:
+# "Please share the terminal output so I can see the specific error"
+```
+
+### Background Process Management
+- **SET** isBackground=false for commands requiring immediate feedback
+- **USE** isBackground=true only for long-running processes (servers, watches)
+- **CHECK** command completion status before proceeding to next steps
+- **REQUEST** terminal session ID when multiple terminals are active
+
+### Troubleshooting Workflow
+1. **IDENTIFY** the specific terminal session with issues
+2. **REQUEST** complete error output from user
+3. **ANALYZE** error context with full command history
+4. **PROVIDE** targeted fix with explicit PowerShell commands
+5. **VERIFY** resolution with user-shared output
+
+## �📋 SANITIZATION ENFORCEMENT
 
 ### Automatic Sanitization Required
 All AI responses must automatically sanitize:

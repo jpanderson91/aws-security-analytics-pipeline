@@ -104,8 +104,9 @@ resource "aws_subnet" "public" {
 
 # Elastic IPs for NAT gateways provide consistent outbound IP addresses
 # Important for whitelisting and external service integration
+# Using single NAT gateway for demo cost optimization
 resource "aws_eip" "nat" {
-  count = length(local.azs) # One EIP per NAT gateway
+  count = 1 # Single NAT gateway for demo
 
   domain = "vpc" # VPC-allocated EIP (not EC2-Classic)
 
@@ -124,12 +125,12 @@ resource "aws_eip" "nat" {
 
 # NAT gateways provide outbound internet access for private subnet resources
 # Essential for MSK brokers to download updates and communicate with AWS services
-# One per AZ for high availability (if one AZ fails, others continue working)
+# Using single NAT gateway for demo cost optimization
 resource "aws_nat_gateway" "cap_demo" {
-  count = length(local.azs) # One NAT gateway per AZ
+  count = 1 # Single NAT gateway for demo
 
-  allocation_id = aws_eip.nat[count.index].id       # Associate with specific EIP
-  subnet_id     = aws_subnet.public[count.index].id # Place in public subnet
+  allocation_id = aws_eip.nat[0].id       # Associate with first EIP
+  subnet_id     = aws_subnet.public[0].id # Place in first public subnet
 
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-nat-${count.index + 1}" # cap-demo-dev-nat-1
@@ -170,11 +171,11 @@ resource "aws_route_table" "private" {
 
   vpc_id = aws_vpc.cap_demo.id
 
-  # Default route: send all traffic to the AZ-specific NAT gateway
+  # Default route: send all traffic to the single NAT gateway
   # This provides internet access while maintaining private subnet security
   route {
     cidr_block     = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.cap_demo[count.index].id
+    nat_gateway_id = aws_nat_gateway.cap_demo[0].id
   }
 
   tags = merge(local.common_tags, {

@@ -56,7 +56,7 @@ resource "aws_lb" "ecs_alb" {
   internal           = true # Internal ALB for service-to-service communication
   load_balancer_type = "application"
   security_groups    = [aws_security_group.ecs_alb.id]
-  subnets            = var.private_subnet_ids # Deploy in private subnets
+  subnets            = aws_subnet.private[*].id # Deploy in private subnets
 
   # Enable deletion protection in production environments
   enable_deletion_protection = var.environment == "prod" ? true : false
@@ -136,7 +136,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "ecs_logs" {
 # Controls inbound traffic to the load balancer
 resource "aws_security_group" "ecs_alb" {
   name_prefix = "${var.environment}-${var.project_name}-ecs-alb-"
-  vpc_id      = var.vpc_id
+  vpc_id      = aws_vpc.cap_demo.id
   description = "Security group for ECS Application Load Balancer"
 
   # Allow HTTP traffic from within VPC
@@ -146,7 +146,7 @@ resource "aws_security_group" "ecs_alb" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = [var.vpc_cidr]
+    cidr_blocks = [aws_vpc.cap_demo.cidr_block]
   }
 
   # Allow HTTPS traffic from within VPC
@@ -156,7 +156,7 @@ resource "aws_security_group" "ecs_alb" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = [var.vpc_cidr]
+    cidr_blocks = [aws_vpc.cap_demo.cidr_block]
   }
 
   # Allow all outbound traffic for service communication
@@ -184,7 +184,7 @@ resource "aws_security_group" "ecs_alb" {
 # Controls traffic to and from container tasks
 resource "aws_security_group" "ecs_tasks" {
   name_prefix = "${var.environment}-${var.project_name}-ecs-tasks-"
-  vpc_id      = var.vpc_id
+  vpc_id      = aws_vpc.cap_demo.id
   description = "Security group for ECS tasks"
 
   # Allow traffic from ALB on container ports
@@ -203,7 +203,7 @@ resource "aws_security_group" "ecs_tasks" {
     from_port   = 9092
     to_port     = 9094
     protocol    = "tcp"
-    cidr_blocks = [var.vpc_cidr]
+    cidr_blocks = [aws_vpc.cap_demo.cidr_block]
   }
 
   # Allow outbound HTTPS for AWS API calls
@@ -231,7 +231,7 @@ resource "aws_security_group" "ecs_tasks" {
     from_port   = 9092
     to_port     = 9094
     protocol    = "tcp"
-    cidr_blocks = [var.vpc_cidr]
+    cidr_blocks = [aws_vpc.cap_demo.cidr_block]
   }
 
   tags = merge(var.common_tags, {
@@ -503,8 +503,8 @@ module "security_processor_service" {
   memory          = var.security_processor_memory
 
   # Networking
-  vpc_id           = var.vpc_id
-  private_subnets  = var.private_subnet_ids
+  vpc_id           = aws_vpc.cap_demo.id
+  private_subnets  = aws_subnet.private[*].id
   security_groups  = [aws_security_group.ecs_tasks.id]
   target_group_arn = aws_lb_target_group.security_processor.arn
 
@@ -537,7 +537,7 @@ resource "aws_lb_target_group" "security_processor" {
   name        = "${var.environment}-${var.project_name}-security-tg"
   port        = 8080
   protocol    = "HTTP"
-  vpc_id      = var.vpc_id
+  vpc_id      = aws_vpc.cap_demo.id
   target_type = "ip"
 
   # Health check configuration
@@ -596,8 +596,8 @@ module "metrics_processor_service" {
   memory          = var.metrics_processor_memory
 
   # Networking
-  vpc_id           = var.vpc_id
-  private_subnets  = var.private_subnet_ids
+  vpc_id           = aws_vpc.cap_demo.id
+  private_subnets  = aws_subnet.private[*].id
   security_groups  = [aws_security_group.ecs_tasks.id]
   target_group_arn = aws_lb_target_group.metrics_processor.arn
 
@@ -630,7 +630,7 @@ resource "aws_lb_target_group" "metrics_processor" {
   name        = "${var.environment}-${var.project_name}-metrics-tg"
   port        = 8080
   protocol    = "HTTP"
-  vpc_id      = var.vpc_id
+  vpc_id      = aws_vpc.cap_demo.id
   target_type = "ip"
 
   # Health check configuration
@@ -673,7 +673,7 @@ resource "aws_lb_listener" "metrics_processor" {
   })
 }
 
-# Customer Workflow Processor Service  
+# Customer Workflow Processor Service
 # Handles customer events and workflow automation
 module "workflow_processor_service" {
   source = "./modules/ecs_service"
@@ -689,8 +689,8 @@ module "workflow_processor_service" {
   memory          = var.workflow_processor_memory
 
   # Networking
-  vpc_id           = var.vpc_id
-  private_subnets  = var.private_subnet_ids
+  vpc_id           = aws_vpc.cap_demo.id
+  private_subnets  = aws_subnet.private[*].id
   security_groups  = [aws_security_group.ecs_tasks.id]
   target_group_arn = aws_lb_target_group.workflow_processor.arn
 
@@ -723,7 +723,7 @@ resource "aws_lb_target_group" "workflow_processor" {
   name        = "${var.environment}-${var.project_name}-workflow-tg"
   port        = 8080
   protocol    = "HTTP"
-  vpc_id      = var.vpc_id
+  vpc_id      = aws_vpc.cap_demo.id
   target_type = "ip"
 
   # Health check configuration

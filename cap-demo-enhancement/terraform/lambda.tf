@@ -6,7 +6,7 @@
 # This file creates Lambda functions that provide event-driven processing
 # capabilities for the CAP demo platform:
 # - Data validation and quality checks
-# - Real-time analytics and anomaly detection  
+# - Real-time analytics and anomaly detection
 # - Customer notifications and alerting
 # - Workflow automation and orchestration
 #
@@ -37,7 +37,7 @@ resource "aws_lambda_function" "data_validator" {
 
   # VPC configuration for secure access to MSK and other resources
   vpc_config {
-    subnet_ids         = var.private_subnet_ids
+    subnet_ids         = aws_subnet.private[*].id
     security_group_ids = [aws_security_group.lambda_functions.id]
   }
 
@@ -89,7 +89,7 @@ data "archive_file" "data_validator" {
 resource "aws_cloudwatch_log_group" "lambda_data_validator" {
   name              = "/aws/lambda/${var.environment}-${var.project_name}-data-validator"
   retention_in_days = var.log_retention_days
-  kms_key_id        = var.enable_log_encryption ? aws_kms_key.s3_data_lake.arn : null
+  kms_key_id        = var.enable_log_encryption ? aws_kms_key.logs[0].arn : null
 
   tags = merge(var.common_tags, {
     Name       = "${var.environment}-${var.project_name}-data-validator-logs"
@@ -134,7 +134,7 @@ resource "aws_lambda_function" "analytics_trigger" {
 
   # VPC configuration
   vpc_config {
-    subnet_ids         = var.private_subnet_ids
+    subnet_ids         = aws_subnet.private[*].id
     security_group_ids = [aws_security_group.lambda_functions.id]
   }
 
@@ -186,7 +186,7 @@ data "archive_file" "analytics_trigger" {
 resource "aws_cloudwatch_log_group" "lambda_analytics_trigger" {
   name              = "/aws/lambda/${var.environment}-${var.project_name}-analytics-trigger"
   retention_in_days = var.log_retention_days
-  kms_key_id        = var.enable_log_encryption ? aws_kms_key.s3_data_lake.arn : null
+  kms_key_id        = var.enable_log_encryption ? aws_kms_key.logs[0].arn : null
 
   tags = merge(var.common_tags, {
     Name       = "${var.environment}-${var.project_name}-analytics-trigger-logs"
@@ -229,7 +229,7 @@ resource "aws_lambda_function" "customer_notifier" {
 
   # VPC configuration
   vpc_config {
-    subnet_ids         = var.private_subnet_ids
+    subnet_ids         = aws_subnet.private[*].id
     security_group_ids = [aws_security_group.lambda_functions.id]
   }
 
@@ -277,7 +277,7 @@ data "archive_file" "customer_notifier" {
 resource "aws_cloudwatch_log_group" "lambda_customer_notifier" {
   name              = "/aws/lambda/${var.environment}-${var.project_name}-customer-notifier"
   retention_in_days = var.log_retention_days
-  kms_key_id        = var.enable_log_encryption ? aws_kms_key.s3_data_lake.arn : null
+  kms_key_id        = var.enable_log_encryption ? aws_kms_key.logs[0].arn : null
 
   tags = merge(var.common_tags, {
     Name       = "${var.environment}-${var.project_name}-customer-notifier-logs"
@@ -333,7 +333,7 @@ resource "aws_sns_topic_subscription" "customer_alerts_email" {
 # Security Group for Lambda functions
 resource "aws_security_group" "lambda_functions" {
   name_prefix = "${var.environment}-${var.project_name}-lambda-"
-  vpc_id      = var.vpc_id
+  vpc_id      = aws_vpc.cap_demo.id
   description = "Security group for Lambda functions"
 
   # Allow outbound HTTPS for AWS API calls
@@ -493,13 +493,15 @@ resource "aws_iam_role_policy" "lambda_custom_policy" {
 # Create directory for Lambda function packages
 resource "null_resource" "lambda_packages_dir" {
   provisioner "local-exec" {
-    command = "mkdir -p ${path.module}/lambda_packages"
+    command     = "if not exist \"${path.module}\\lambda_packages\" mkdir \"${path.module}\\lambda_packages\""
+    interpreter = ["cmd", "/C"]
   }
 }
 
 # Create directory for Lambda function source code
 resource "null_resource" "lambda_functions_dir" {
   provisioner "local-exec" {
-    command = "mkdir -p ${path.module}/lambda_functions"
+    command     = "if not exist \"${path.module}\\lambda_functions\" mkdir \"${path.module}\\lambda_functions\""
+    interpreter = ["cmd", "/C"]
   }
 }
