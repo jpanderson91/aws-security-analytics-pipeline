@@ -110,6 +110,42 @@ aws sts get-caller-identity
 - Implement proper lifecycle policies
 - Maintain audit logging
 
+### 🚨 SANITIZATION REQUIREMENTS
+
+#### Personal Information Protection
+- **NEVER** include personal file paths (`C:\Users\[username]\`)
+- **ALWAYS** use generic paths (`C:\Projects\`, `C:\Development\`)
+- **REMOVE** personal names, email addresses, or contact information
+- **REPLACE** specific usernames with generic terms ("Project Team", "Development Team")
+
+#### Corporate Reference Sanitization
+- **NO** specific company names, internal projects, or proprietary references
+- **USE** generic terms ("Technology", "Engineering", "Project Team")
+- **AVOID** internal acronyms, department names, or organizational structure references
+- **SANITIZE** any corporate-specific terminology before public sharing
+
+#### AWS Account Protection
+- **NEVER** hardcode AWS account IDs, ARNs, or specific resource identifiers
+- **USE** template variables for all account-specific information
+- **REMOVE** SSO URLs, specific region constraints, or account-specific configurations
+- **ENSURE** all AWS references are generic and configurable
+
+#### Template Security Standards
+- **ALL** template variables must use generic, professional placeholders
+- **DEFAULT** values should be industry-standard and non-specific
+- **VERIFY** no hardcoded sensitive information in any generated content
+- **MAINTAIN** professional terminology suitable for public distribution
+
+#### Pre-Publication Checklist
+Before any public sharing or repository updates:
+- [ ] ✅ All personal paths sanitized to generic examples
+- [ ] ✅ No personal names, emails, or contact information
+- [ ] ✅ No corporate-specific references or internal terms
+- [ ] ✅ No hardcoded AWS account information
+- [ ] ✅ All template variables are generic and professional
+- [ ] ✅ Documentation uses industry-standard terminology
+- [ ] ✅ Safe for public distribution and portfolio use
+
 ## 💰 COST OPTIMIZATION RULES
 
 ### Resource Management
@@ -161,6 +197,7 @@ aws sts get-caller-identity
 5. **ENSURE** portfolio demonstration value in all changes
 6. **VALIDATE** that changes work with existing Terraform configurations
 7. **DOCUMENT** any new AWS resources with cost implications
+8. **🚨 SANITIZE** all personal, corporate, or sensitive information before public sharing
 
 ## 🎯 SUCCESS CRITERIA
 
@@ -172,6 +209,7 @@ Every suggestion should:
 - ✅ Follow AWS security best practices
 - ✅ Include proper documentation
 - ✅ Support both basic and enterprise scenarios
+- ✅ **Be sanitized and safe for public distribution**
 
 ## 🔄 ITERATION CONSISTENCY
 
@@ -181,3 +219,22 @@ When working across multiple interactions:
 - **VALIDATE** that new suggestions align with project architecture
 - **PRESERVE** the Windows PowerShell environment assumption
 - **MAINTAIN** focus on original objectives without shortcuts
+- **🚨 SANITIZE** all outputs for public safety and professional standards
+
+## 📋 SANITIZATION ENFORCEMENT
+
+### Automatic Sanitization Required
+All AI responses must automatically sanitize:
+- Personal file paths → Generic examples (`C:\Projects\`)
+- Personal names → Professional roles ("Project Team", "Development Team")
+- Corporate references → Generic terms ("Technology", "Engineering")
+- Account-specific data → Template variables (`{{ACCOUNT_ID}}`)
+- Internal terminology → Industry-standard language
+
+### Public Distribution Standard
+Every file, template, and response must meet these criteria:
+- ✅ Safe for GitHub public repositories
+- ✅ Professional presentation quality
+- ✅ No personal or corporate identifiers
+- ✅ Generic, reusable content structure
+- ✅ Portfolio and interview appropriate
