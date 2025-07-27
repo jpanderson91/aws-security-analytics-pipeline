@@ -4,8 +4,8 @@
 Successfully completed cleanup of all AWS resources for the Security Analytics Pipeline project to avoid ongoing costs before starting Project 2.
 
 ## Cleanup Date
-**Date:** July 22, 2025  
-**Time:** Evening (EST)  
+**Date:** July 22, 2025
+**Time:** Evening (EST)
 **Status:** ✅ COMPLETE - All resources destroyed
 
 ---
@@ -14,9 +14,9 @@ Successfully completed cleanup of all AWS resources for the Security Analytics P
 
 ### 1. Terraform-Managed Resources
 ✅ **Terraform Destroy Completed**
-- **KMS Key**: `arn:aws:kms:us-east-1:643275918916:key/8712a272-a2f8-4df7-8cd2-c0b41dac4187`
+- **KMS Key**: `arn:aws:kms:us-east-1:ACCOUNT_ID:key/8712a272-a2f8-4df7-8cd2-c0b41dac4187`
 - **S3 Bucket**: `security-analytics-dev-security-data-lake-axhcu3q5`
-- **SNS Topic**: `arn:aws:sns:us-east-1:643275918916:security-analytics-dev-security-alerts`
+- **SNS Topic**: `arn:aws:sns:us-east-1:ACCOUNT_ID:security-analytics-dev-security-alerts`
 - **Random String**: `axhcu3q5` (for bucket suffix)
 
 ### 2. Manually Deleted Resources
@@ -104,10 +104,10 @@ All verification commands returned **empty results**, confirming complete cleanu
 
 ## Next Steps
 
-✅ **Project 1**: Complete and ready for portfolio presentation  
-🚀 **Project 2**: Ready to begin - clean AWS environment  
-💰 **Cost Control**: Achieved - zero ongoing charges  
-📊 **Portfolio**: Professional-grade project with full documentation  
+✅ **Project 1**: Complete and ready for portfolio presentation
+🚀 **Project 2**: Ready to begin - clean AWS environment
+💰 **Cost Control**: Achieved - zero ongoing charges
+📊 **Portfolio**: Professional-grade project with full documentation
 
 ---
 
@@ -149,6 +149,6 @@ Remove-Item -Recurse -Force .terraform
 
 ---
 
-**Project 1 Status**: ✅ **COMPLETE AND CLEAN**  
-**Ready for**: 🚀 **Project 2 Development**  
+**Project 1 Status**: ✅ **COMPLETE AND CLEAN**
+**Ready for**: 🚀 **Project 2 Development**
 **AWS Account**: 💰 **$0.00 Monthly Charges**

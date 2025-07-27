@@ -1,0 +1,35 @@
+# Enhanced AWS Configuration Template for Extended SSO Sessions
+# Copy this content to ~/.aws/config after backing up your existing config
+
+[profile security-analytics]
+sso_session = security-analytics
+sso_account_id = YOUR_AWS_ACCOUNT_ID
+sso_role_name = AdministratorAccess
+region = us-east-1
+cli_pager =
+output = json
+# Optimizations for better session management
+cli_follow_urlparam = false
+cli_timestamp_format = iso
+max_attempts = 3
+
+[sso-session security-analytics]
+sso_start_url = https://YOUR_SSO_DOMAIN.awsapps.com/start/#
+sso_region = us-east-1
+sso_registration_scopes = sso:account:access
+# Session optimizations
+sso_max_attempts = 3
+sso_cli_max_attempts = 3
+
+# Optional: Add a default profile that points to security-analytics
+[default]
+region = us-east-1
+output = json
+
+# Optional: Create a profile for specific use cases
+[profile security-analytics-readonly]
+sso_session = security-analytics
+sso_account_id = YOUR_AWS_ACCOUNT_ID
+sso_role_name = ReadOnlyAccess
+region = us-east-1
+output = json

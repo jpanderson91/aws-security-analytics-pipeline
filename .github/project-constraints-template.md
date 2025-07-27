@@ -20,8 +20,11 @@ Copy and paste this at the beginning of new conversations or when you notice con
 3. Preserve existing validated functionality
 4. Maintain cost optimization focus
 5. Enhance portfolio demonstration value
+6. **NEVER commit sensitive AWS information (account IDs, SSO URLs, credentials)**
 
 **CURRENT OBJECTIVE**: [Clearly state what you want to accomplish]
+
+**SECURITY REMINDER**: Replace placeholder values (YOUR_AWS_ACCOUNT_ID, YOUR_SSO_DOMAIN) with actual values locally, but never commit real values to public repositories.
 
 ---
 
@@ -70,7 +73,7 @@ remove-item directory\ -recurse
 
 ### 1. Start with Context Anchor
 ```
-"Working on AWS Security Analytics Pipeline in Windows PowerShell environment. 
+"Working on AWS Security Analytics Pipeline in Windows PowerShell environment.
 Current objective: [specific goal]. Please maintain project constraints."
 ```
 
@@ -101,7 +104,7 @@ Current objective: [specific goal]. Please maintain project constraints."
 # Copy files
 copy-item source.txt destination\
 
-# Move files  
+# Move files
 move source.txt destination\
 
 # Create directory

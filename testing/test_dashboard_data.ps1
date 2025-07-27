@@ -51,12 +51,12 @@ $events = @(
   "id": "guardduty-test-event",
   "detail-type": "GuardDuty Finding",
   "source": "aws.guardduty",
-  "account": "643275918916",
+  "account": "123456789012",
   "time": "2025-07-22T22:31:00Z",
   "region": "us-east-1",
   "detail": {
     "schemaVersion": "2.0",
-    "accountId": "643275918916",
+    "accountId": "123456789012",
     "region": "us-east-1",
     "id": "test-finding-12345",
     "type": "UnauthorizedAPICall:EC2/MaliciousIPCaller.Custom",
@@ -95,7 +95,7 @@ $events = @(
   "id": "normal-signin-event",
   "detail-type": "AWS Console Sign In",
   "source": "aws.signin",
-  "account": "643275918916",
+  "account": "123456789012",
   "time": "2025-07-22T22:32:00Z",
   "region": "us-east-1",
   "detail": {
@@ -103,8 +103,8 @@ $events = @(
     "userIdentity": {
       "type": "IAMUser",
       "principalId": "AIDACKCEVSQ6C2EXAMPLE",
-      "arn": "arn:aws:iam::643275918916:user/normal-user",
-      "accountId": "643275918916",
+      "arn": "arn:aws:iam::123456789012:user/normal-user",
+      "accountId": "123456789012",
       "userName": "normal-user"
     },
     "eventTime": "2025-07-22T22:32:00Z",
