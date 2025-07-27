@@ -273,7 +273,7 @@ aws dynamodb list-tables
 
 ```bash
 # Run comprehensive validation
-python scripts/run_complete_validation.py
+python tests/run_complete_validation.py
 
 # Test end-to-end data flow
 python scripts/run_full_demo.py --scenario all
@@ -300,7 +300,7 @@ python scripts/view_metrics.py
    ```bash
    # Check VPC configuration
    aws ec2 describe-subnets --filters "Name=vpc-id,Values=<vpc-id>"
-   
+
    # Verify MSK cluster logs
    aws logs describe-log-groups --log-group-name-prefix "/aws/msk"
    ```
@@ -309,7 +309,7 @@ python scripts/view_metrics.py
    ```bash
    # Check task definition
    aws ecs describe-task-definition --task-definition cap-event-processor
-   
+
    # View task logs
    aws logs get-log-events --log-group-name /ecs/cap-event-processor
    ```
@@ -318,7 +318,7 @@ python scripts/view_metrics.py
    ```bash
    # Check function configuration
    aws lambda get-function --function-name cap-event-processor
-   
+
    # View function logs
    aws logs get-log-events --log-group-name /aws/lambda/cap-event-processor
    ```
@@ -327,7 +327,7 @@ python scripts/view_metrics.py
    ```bash
    # Check API Gateway logs
    aws logs get-log-events --log-group-name API-Gateway-Execution-Logs
-   
+
    # Test Lambda integration
    aws lambda invoke --function-name cap-api-handler response.json
    ```

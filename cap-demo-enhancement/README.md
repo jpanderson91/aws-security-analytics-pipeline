@@ -52,7 +52,10 @@ python scripts/setup_phase3_analytics.py
 
 ```bash
 # Run complete validation
-python scripts/run_complete_validation.py
+python tests/run_complete_validation.py
+
+# Run demo readiness check
+python tests/demo_readiness_validator.py
 
 # Test end-to-end flow
 python scripts/run_full_demo.py
@@ -61,8 +64,10 @@ python scripts/run_full_demo.py
 ## 📁 Project Structure
 
 ```
-cap-security-analytics-pipeline/
-├── README.md                   # This file
+cap-demo-enhancement/
+├── README.md                   # Main technical documentation
+├── ENHANCEMENT_NOTES.md        # Enhancement project notes
+├── QUICK_DEMO_COMMANDS.md      # Quick demo guide
 ├── requirements.txt            # Python dependencies
 ├── docs/                       # Documentation
 │   ├── ARCHITECTURE.md         # Technical architecture
@@ -74,10 +79,24 @@ cap-security-analytics-pipeline/
 │   ├── variables.tf            # Input variables
 │   ├── outputs.tf              # Output values
 │   └── dashboards.tf           # QuickSight dashboard configuration
+├── scripts/                    # Deployment automation
+│   ├── setup_phase1_kafka.py  # Phase 1 deployment
+│   ├── setup_phase2_processing.py # Phase 2 deployment
+│   ├── setup_phase3_analytics.py  # Phase 3 deployment
+│   ├── cleanup_environment.py # Complete cleanup
+│   └── cleanup_cap_demo.ps1   # PowerShell cleanup
+├── tests/                      # Validation and testing
+│   ├── demo_readiness_validator.py # Demo readiness check
+│   ├── run_complete_validation.py  # Complete validation
+│   ├── test_cap_environment.py     # Environment tests
+│   ├── test_customer_apis.py       # API tests
+│   └── test_phase2_dataflow.py     # Data flow tests
+├── reports/                    # Validation reports
+│   └── *.json                 # Generated validation reports
 ├── src/                        # Application source code
 │   ├── lambda/                 # Lambda function code
-│   │   └── event_processor/    # Event processing Lambda
-│   └── deploy.py               # Deployment utilities
+│   ├── kafka/                  # Kafka producers/consumers
+│   └── processors/             # ECS processing components
 ├── scripts/                    # Automation scripts
 │   ├── setup_phase1_kafka.py         # Phase 1 deployment
 │   ├── setup_phase2_processing.py    # Phase 2 deployment

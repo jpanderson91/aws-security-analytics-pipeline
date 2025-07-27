@@ -2,8 +2,8 @@
 
 ## 🎬 Demo Overview
 
-**Duration**: 15-20 minutes  
-**Audience**: Technical stakeholders, potential employers, colleagues  
+**Duration**: 15-20 minutes
+**Audience**: Technical stakeholders, potential employers, colleagues
 **Objective**: Showcase enterprise-grade AWS security analytics pipeline capabilities
 
 ## 📋 Pre-Demo Checklist
@@ -28,7 +28,7 @@
 
 ### Segment 1: Introduction & Architecture (3-4 minutes)
 
-**Script**: 
+**Script**:
 > "Hello! I'm excited to demonstrate the CAP Security Analytics Pipeline - an enterprise-grade, AWS-native solution for real-time security event processing and analysis. This project showcases modern cloud architecture patterns, DevOps practices, and data engineering capabilities."
 
 **Actions**:
@@ -125,7 +125,7 @@
    cd consolidated/scripts
    python produce_security_events.py --demo-mode --events 100
    ```
-   
+
 2. **AWS Console: Monitor MSK**
    - Show topic metrics updating
    - Display partition distribution
@@ -151,11 +151,11 @@
 #### 3C: Analytics Demo (2-3 minutes)
 5. **Athena Query Demo**
    ```sql
-   SELECT 
+   SELECT
      event_type,
      COUNT(*) as event_count,
      AVG(processing_time_ms) as avg_processing_time
-   FROM gold_security_metrics 
+   FROM gold_security_metrics
    WHERE date = current_date
    GROUP BY event_type
    ORDER BY event_count DESC;
@@ -165,10 +165,10 @@
    ```bash
    # Test health endpoint
    curl -X GET https://api-gateway-url/health
-   
+
    # Test security metrics endpoint
    curl -X GET https://api-gateway-url/metrics/today
-   
+
    # Test customer data endpoint
    curl -X GET https://api-gateway-url/customer/12345/events
    ```
@@ -202,8 +202,8 @@
 3. **Validation Scripts**
    ```bash
    # Run system health check
-   python scripts/run_complete_validation.py --quick-check
-   
+   python tests/run_complete_validation.py --quick-check
+
    # Show cost analysis
    python scripts/cost_monitor.py --summary
    ```
@@ -236,7 +236,7 @@
    # Show Terraform plan
    cd terraform
    terraform plan -var-file="terraform.tfvars"
-   
+
    # Show state management
    terraform state list
    ```
@@ -246,9 +246,9 @@
    # Show deployment automation
    cd scripts
    ls -la setup_*.py verify_*.py
-   
+
    # Show validation automation
-   python run_complete_validation.py --dry-run
+   python tests/run_complete_validation.py --dry-run
    ```
 
 4. **Documentation**

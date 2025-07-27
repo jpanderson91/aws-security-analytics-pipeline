@@ -65,7 +65,7 @@ cap-demo-enhancement/
 ### Deployment
 1. **Validate Environment**:
    ```bash
-   python run_complete_validation.py --quick-check
+   python tests/run_complete_validation.py --quick-check
    ```
 
 2. **Deploy Infrastructure**:

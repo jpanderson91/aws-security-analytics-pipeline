@@ -5,7 +5,7 @@
 ### 1. Show Project Structure
 ```powershell
 # Navigate to project
-cd C:\Users\jpand\sec-analytics-pipeline\cap-data-ingestion-demo\consolidated
+cd C:\Projects\aws-security-analytics-pipeline\cap-demo-enhancement
 
 # Show structure
 tree /F
@@ -14,7 +14,7 @@ tree /F
 ### 2. Run Demo Validator
 ```powershell
 # Run demo readiness check
-python demo_readiness_validator.py
+python tests/demo_readiness_validator.py
 ```
 
 ### 3. Show Documentation
@@ -69,7 +69,7 @@ python setup_phase3_analytics.py
 
 1. **Enterprise Architecture**: "Real-time security analytics with AWS native services"
 2. **DevOps Excellence**: "Complete Infrastructure as Code with automated deployment"
-3. **Scalability**: "Container-based processing with auto-scaling capabilities"  
+3. **Scalability**: "Container-based processing with auto-scaling capabilities"
 4. **Cost Optimization**: "Serverless components and intelligent data tiering"
 5. **Professional Organization**: "Comprehensive documentation and validation automation"
 
