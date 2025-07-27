@@ -1,0 +1,20 @@
+{
+  "start_time": "2025-07-27T12:51:18.359899",
+  "phases": {},
+  "errors": [
+    "Prerequisite failed: Demo Scripts",
+    "Prerequisite failed: Directory Structure"
+  ],
+  "warnings": [
+    "Prerequisite warning: AWS Credentials"
+  ],
+  "demo_readiness": {},
+  "metrics": {},
+  "compatibility": {
+    "Phase 1": "\u26a0\ufe0f Issues detected",
+    "Phase 2": "\u274c Script missing",
+    "Phase 3": "\u274c Script missing",
+    "Validation": "\u274c Script missing"
+  },
+  "end_time": "2025-07-27T12:51:19.416137"
+}

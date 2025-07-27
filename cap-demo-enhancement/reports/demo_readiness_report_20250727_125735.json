@@ -1,0 +1,23 @@
+{
+  "start_time": "2025-07-27T12:57:31.621638",
+  "phases": {},
+  "errors": [
+    "Prerequisite failed: Demo Scripts"
+  ],
+  "warnings": [],
+  "demo_readiness": {},
+  "metrics": {},
+  "compatibility": {
+    "Phase 1": "\u2705 Syntax OK",
+    "Phase 2": "\u2705 Syntax OK",
+    "Phase 3": "\u2705 Syntax OK",
+    "Validation": "\u2705 Syntax OK"
+  },
+  "infrastructure": {
+    "MSK Clusters": "Found 0 clusters",
+    "ECS Clusters": "Found 0 clusters",
+    "Lambda Functions": "Found 1 functions",
+    "API Gateway": "Found 0 APIs"
+  },
+  "end_time": "2025-07-27T12:57:35.644585"
+}
