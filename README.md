@@ -9,15 +9,15 @@
 ### ⚡ **Basic Pipeline** - Production Ready ($15/month)
 Complete security analytics pipeline with real-time processing and monitoring.
 
-**Features:** Kinesis → Lambda → S3, CloudWatch dashboards, cost-optimized  
-**Perfect for:** Portfolio demonstrations, interviews, personal projects  
+**Features:** Kinesis → Lambda → S3, CloudWatch dashboards, cost-optimized
+**Perfect for:** Portfolio demonstrations, interviews, personal projects
 **→ [Deploy Basic Pipeline](README.md#basic-deployment)**
 
 ### 🏢 **Enterprise Data Platform Demo** - Full Enterprise Architecture ($100-200/month)
 Complete Cloud Analytics Platform simulation with MSK Kafka, ECS, and advanced features.
 
-**Features:** MSK Kafka, ECS services, Bronze/Silver/Gold data tiers, Customer APIs  
-**Perfect for:** Enterprise demos, technical deep-dives, team alignment  
+**Features:** MSK Kafka, ECS services, Bronze/Silver/Gold data tiers, Customer APIs
+**Perfect for:** Enterprise demos, technical deep-dives, team alignment
 **→ [Deploy Enterprise Demo](cap-demo-enhancement/)**
 
 ---
@@ -26,7 +26,7 @@ Complete Cloud Analytics Platform simulation with MSK Kafka, ECS, and advanced f
 
 This repository showcases **senior-level AWS capabilities** through two complementary projects:
 
-### 🏢 **Enterprise Cloud Platform Architecture** 
+### 🏢 **Enterprise Cloud Platform Architecture**
 - **Enterprise Simulation**: Real MSK Kafka cluster with ECS container orchestration
 - **Multi-Tier Processing**: Bronze/Silver/Gold data pipeline architecture
 - **Customer Workflows**: JIRA ticket simulation and onboarding automation
@@ -48,7 +48,7 @@ This repository showcases **senior-level AWS capabilities** through two compleme
 ![Security Analytics Dashboard](docs/screenshots/security-analytics-dashboard.png)
 *Security Analytics Dashboard - Shows Lambda performance, Kinesis activity, and S3 data lake status*
 
-![Security Metrics Dashboard](docs/screenshots/security-metrics-dashboard.png)  
+![Security Metrics Dashboard](docs/screenshots/security-metrics-dashboard.png)
 *Security Metrics Dashboard - Real-time metrics showing 3 events processed, 0 errors, 138ms avg processing time*
 
 ![Cost Tracking Dashboard](docs/screenshots/cost-tracking-dashboard.png)
@@ -70,7 +70,7 @@ graph TB
     S3 --> GC[Glue Catalog]
     GC --> AT[Athena Queries]
     AT --> CW[CloudWatch<br/>Dashboards]
-    
+
     style LF fill:#ff6b6b
     style S3 fill:#4ecdc4
     style KS fill:#45b7d1
@@ -111,7 +111,7 @@ graph TB
 ![Security Analytics Dashboard](docs/screenshots/security-analytics-dashboard.png)
 *Production dashboard showing Lambda performance, Kinesis activity, and S3 data lake metrics*
 
-### Security Metrics Dashboard  
+### Security Metrics Dashboard
 ![Security Metrics Dashboard](docs/screenshots/security-metrics-dashboard.png)
 *Real-time processing metrics: 3 events processed, 0 errors, 138ms average response time*
 
@@ -123,7 +123,7 @@ graph TB
 
 ---
 
-## � **Basic Deployment** 
+## � **Basic Deployment**
 
 ### Prerequisites
 ```bash
@@ -164,7 +164,7 @@ terraform output dashboard_urls
 
 **Expected Results:**
 - ✅ Lambda processing events in <200ms
-- ✅ S3 objects created with proper partitioning  
+- ✅ S3 objects created with proper partitioning
 - ✅ CloudWatch dashboards showing live metrics
 - ✅ Zero processing errors
 
@@ -200,7 +200,7 @@ python test_pipeline.py
 
 # Expected output:
 # ✅ Event 1 sent successfully
-# ✅ Event 2 sent successfully  
+# ✅ Event 2 sent successfully
 # ✅ Event 3 sent successfully
 # 📊 3/3 events processed successfully
 ```
@@ -211,7 +211,7 @@ python test_pipeline.py
 aws-security-analytics-pipeline/
 ├── docs/                   # 📋 Complete documentation
 │   ├── DASHBOARD_VALIDATION.md  # Dashboard URLs & validation guide
-│   ├── ISSUE_TRACKING.md       # Complete issue resolution log  
+│   ├── ISSUE_TRACKING.md       # Complete issue resolution log
 │   ├── PROJECT_STATUS.md       # Portfolio status summary
 │   ├── cost-analysis.md        # Cost optimization analysis
 │   ├── PROJECT_1_CLEANUP_SUMMARY.md # Resource cleanup documentation
@@ -273,23 +273,23 @@ graph TB
         CT[CloudTrail Events]
         CE[Custom Events]
     end
-    
+
     subgraph "Real-time Processing"
         KS[Kinesis Data Stream]
         LF[Lambda Function]
     end
-    
+
     subgraph "Data Lake"
         S3[S3 Buckets]
         GC[Glue Catalog]
     end
-    
+
     subgraph "Analytics & Monitoring"
         AT[Athena Queries]
         CW[CloudWatch Dashboards]
         SNS[SNS Alerts]
     end
-    
+
     CT --> KS
     CE --> KS
     KS --> LF
@@ -298,7 +298,7 @@ graph TB
     S3 --> GC
     GC --> AT
     AT --> CW
-    
+
     style LF fill:#ff6b6b
     style S3 fill:#4ecdc4
     style KS fill:#45b7d1
@@ -346,7 +346,7 @@ graph TB
 **This repository demonstrates senior-level AWS and DevOps capabilities through:**
 
 1. **Proven Production Systems** - Working infrastructure with live monitoring
-2. **Enterprise Architecture** - Complete platform simulation with advanced features  
+2. **Enterprise Architecture** - Complete platform simulation with advanced features
 3. **Cost Engineering** - Smart resource optimization and financial responsibility
 4. **Professional Execution** - Documentation, testing, and issue resolution
 
@@ -354,10 +354,10 @@ graph TB
 
 ---
 
-**Project Status**: ✅ **Production Ready**  
-**Last Updated**: July 2025  
-**AWS Services**: 15+ integrated services  
-**Cost Target**: $15-200/month (configurable)  
+**Project Status**: ✅ **Production Ready**
+**Last Updated**: July 2025
+**AWS Services**: 15+ integrated services
+**Cost Target**: $15-200/month (configurable)
 **Deployment Time**: 10-60 minutes depending on complexity
 - Working CloudWatch dashboards with real data
 - End-to-end pipeline processing test events
@@ -375,7 +375,7 @@ For questions about this implementation or enterprise SOC integration:
 
 ---
 
-**Project Status**: ✅ Production Ready  
-**Last Updated**: July 2025  
-**AWS Services**: 8+ integrated services  
+**Project Status**: ✅ Production Ready
+**Last Updated**: July 2025
+**AWS Services**: 8+ integrated services
 **Security Focus**: Enterprise SOC alignment

@@ -4,7 +4,7 @@
 # Purpose: Terraform foundation for enterprise data ingestion platform
 # Phase 1: MSK Kafka Foundation - Enterprise streaming architecture
 # Date: July 25, 2025
-# 
+#
 # This file establishes the core Terraform configuration including:
 # - AWS provider with proper versioning for stability
 # - Consistent resource tagging strategy for cost tracking
@@ -27,7 +27,7 @@ terraform {
 # AWS Provider configuration with enterprise-grade settings
 # Uses environment variables for authentication (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN)
 provider "aws" {
-  region  = var.aws_region  # Configurable region (default: us-east-1 for MSK availability)
+  region = var.aws_region # Configurable region (default: us-east-1 for MSK availability)
   # profile = var.aws_profile # Temporarily disabled to use environment variables
 
   # Default tags applied to ALL resources for consistent cost tracking and governance

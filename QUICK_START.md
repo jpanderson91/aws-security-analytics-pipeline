@@ -55,7 +55,7 @@ terraform output dashboard_urls
 
 You should now have:
 - ✅ **Lambda function** processing events
-- ✅ **Kinesis stream** ingesting data  
+- ✅ **Kinesis stream** ingesting data
 - ✅ **S3 bucket** storing processed events
 - ✅ **CloudWatch dashboards** showing live metrics
 
@@ -86,6 +86,6 @@ terraform destroy -auto-approve
 
 ---
 
-**⏱️ Total Time**: 10 minutes  
-**💰 Monthly Cost**: ~$15  
+**⏱️ Total Time**: 10 minutes
+**💰 Monthly Cost**: ~$15
 **🎯 Perfect for**: Portfolio demos, interviews, proof-of-concept

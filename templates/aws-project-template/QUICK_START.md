@@ -6,7 +6,7 @@
 
 After following this guide, you'll have:
 - ✅ **Live {{PROJECT_TYPE}}** processing real data
-- ✅ **Working dashboards** with metrics and monitoring  
+- ✅ **Working dashboards** with metrics and monitoring
 - ✅ **Cost-optimized setup** (~${{BASIC_COST}}/month)
 - ✅ **Portfolio-ready demonstration** with screenshots
 
@@ -82,7 +82,7 @@ dashboard_urls = {
 # Check {{PRIMARY_SERVICE}} status
 {{VERIFICATION_COMMAND_1}}
 
-# Check {{SECONDARY_SERVICE}} status  
+# Check {{SECONDARY_SERVICE}} status
 {{VERIFICATION_COMMAND_2}}
 
 # View all resources
@@ -128,7 +128,7 @@ terraform output dashboard_urls
 
 ### Screenshots for Portfolio
 1. **Main Dashboard**: Shows {{DASHBOARD_1_DESCRIPTION}}
-2. **Metrics Dashboard**: Shows {{DASHBOARD_2_DESCRIPTION}}  
+2. **Metrics Dashboard**: Shows {{DASHBOARD_2_DESCRIPTION}}
 3. **Cost Dashboard**: Shows resource costs and optimization
 
 ### Key Demonstration Points
@@ -230,8 +230,8 @@ After completing this guide, you should have:
 
 ---
 
-**⏱️ Total Time**: {{DEPLOYMENT_TIME}} minutes  
-**💰 Cost**: ~${{BASIC_COST}}/month  
+**⏱️ Total Time**: {{DEPLOYMENT_TIME}} minutes
+**💰 Cost**: ~${{BASIC_COST}}/month
 **🎯 Result**: Production-ready {{PROJECT_TYPE}} with live dashboards
 
 **Perfect for technical interviews, portfolio demonstrations, and AWS skills validation!**

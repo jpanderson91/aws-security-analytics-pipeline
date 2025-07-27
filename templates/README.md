@@ -8,7 +8,7 @@ This directory contains reusable templates for rapidly creating professional AWS
 # Create a new security analytics project
 .\New-AWSProject.ps1 -ProjectName "my-security-pipeline" -ProjectType "security-analytics"
 
-# Create a new data pipeline project  
+# Create a new data pipeline project
 .\New-AWSProject.ps1 -ProjectName "my-data-pipeline" -ProjectType "data-pipeline"
 
 # Create a new web application project
@@ -25,10 +25,10 @@ This directory contains reusable templates for rapidly creating professional AWS
 
 ## Template Features
 
-✅ **Production Ready** - Working infrastructure with live monitoring  
-✅ **Cost Optimized** - Smart defaults with enterprise scaling options  
-✅ **Portfolio Ready** - Professional documentation and screenshots  
-✅ **Security First** - IAM best practices and encryption by default  
+✅ **Production Ready** - Working infrastructure with live monitoring
+✅ **Cost Optimized** - Smart defaults with enterprise scaling options
+✅ **Portfolio Ready** - Professional documentation and screenshots
+✅ **Security First** - IAM best practices and encryption by default
 ✅ **Rapid Deployment** - 6-12 minute setup with automated testing
 
 ## 🏗️ **Repository Structure Templates**
@@ -67,7 +67,7 @@ Advanced project structure for enterprise-scale demonstrations:
 
 # Available templates:
 # - aws-project: Standard AWS infrastructure project
-# - portfolio-project: Portfolio demonstration project  
+# - portfolio-project: Portfolio demonstration project
 # - enterprise-demo: Enterprise-scale demonstration
 ```
 
@@ -78,7 +78,7 @@ Based on our AWS Security Analytics Pipeline iterations:
 ### **Iteration 1**: Basic project structure
 - ❌ **Issues**: Files scattered, unclear navigation, duplicate content
 
-### **Iteration 2**: Repository cleanup  
+### **Iteration 2**: Repository cleanup
 - ✅ **Improvements**: Archive system, better organization
 - ❌ **Remaining**: Manual organization, no standardization
 

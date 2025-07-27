@@ -14,7 +14,7 @@ terraform {
 # AWS Provider
 provider "aws" {
   region = var.aws_region
-  
+
   default_tags {
     tags = {
       Project            = var.project_name
@@ -42,11 +42,11 @@ resource "random_id" "suffix" {
 locals {
   # Naming convention: {project}-{environment}-{service}-{random}
   name_prefix = "${var.project_name}-${var.environment}"
-  
+
   # Resource names with random suffix for global uniqueness
   bucket_name    = "${local.name_prefix}-{{PRIMARY_STORAGE}}-${random_id.suffix.hex}"
   lambda_prefix  = "${local.name_prefix}-{{PRIMARY_COMPUTE}}"
-  
+
   # Common tags for all resources
   common_tags = {
     Project     = var.project_name
@@ -60,7 +60,7 @@ locals {
 # {{PRIMARY_SERVICE}} Configuration
 {{TERRAFORM_PRIMARY_SERVICE}}
 
-# {{SECONDARY_SERVICE}} Configuration  
+# {{SECONDARY_SERVICE}} Configuration
 {{TERRAFORM_SECONDARY_SERVICE}}
 
 # {{STORAGE_SERVICE}} Configuration
