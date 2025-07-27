@@ -12,10 +12,10 @@ param(
     [string]$TargetDirectory = ".",
 
     [Parameter(Mandatory = $false)]
-    [string]$OwnerName = "Development Team",
+    [string]$OwnerName = "Project Team",
 
     [Parameter(Mandatory = $false)]
-    [string]$CostCenter = "Engineering"
+    [string]$CostCenter = "Technology"
 )
 
 # Script configuration

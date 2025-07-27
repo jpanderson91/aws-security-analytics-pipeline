@@ -26,11 +26,11 @@ variable "environment" {
 variable "aws_region" {
   description = "AWS region for resource deployment"
   type        = string
-  default     = "us-east-1"
+  default     = "us-west-2"
 }
 
 variable "owner" {
-  description = "Owner of the resources for cost tracking and contact"
+  description = "Owner of the resources for cost tracking and project management"
   type        = string
   default     = "{{OWNER_NAME}}"
 }

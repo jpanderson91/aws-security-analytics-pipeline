@@ -63,7 +63,7 @@ Advanced project structure for enterprise-scale demonstrations:
 
 ```powershell
 # Generate new project from template
-.\scripts\create-project-from-template.ps1 -TemplateName "aws-project" -ProjectName "my-new-project" -ProjectPath "C:\Users\jpand\projects\"
+.\scripts\create-project-from-template.ps1 -TemplateName "aws-project" -ProjectName "my-new-project" -ProjectPath "C:\Projects\"
 
 # Available templates:
 # - aws-project: Standard AWS infrastructure project
@@ -122,7 +122,7 @@ Based on our AWS Security Analytics Pipeline iterations:
 ## 🛠️ **Customization**
 
 Each template includes:
-- **Variable substitution**: `{{PROJECT_NAME}}`, `{{AUTHOR}}`, `{{DATE}}`
+- **Variable substitution**: `{{PROJECT_NAME}}`, `{{OWNER_NAME}}`, `{{DATE}}`
 - **Modular components**: Choose features to include/exclude
 - **Environment-specific**: Dev, staging, production configurations
 - **Security defaults**: Pre-configured security best practices
