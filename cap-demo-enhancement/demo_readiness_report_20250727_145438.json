@@ -1,0 +1,21 @@
+{
+  "start_time": "2025-07-27T14:54:34.553937",
+  "phases": {},
+  "errors": [],
+  "warnings": [],
+  "demo_readiness": {},
+  "metrics": {},
+  "compatibility": {
+    "Phase 1": "\u2705 Syntax OK",
+    "Phase 2": "\u2705 Syntax OK",
+    "Phase 3": "\u2705 Syntax OK",
+    "Validation": "\u2705 Syntax OK"
+  },
+  "infrastructure": {
+    "MSK Clusters": "Found 1 clusters",
+    "ECS Clusters": "Found 1 clusters",
+    "Lambda Functions": "Found 7 functions",
+    "API Gateway": "Found 1 APIs"
+  },
+  "end_time": "2025-07-27T14:54:38.762797"
+}

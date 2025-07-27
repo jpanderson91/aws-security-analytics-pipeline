@@ -1,96 +1,100 @@
 # Documentation Index
 
-## 🎯 Quick Navigation
+## 🎯 **New to the Project? Start Here!**
 
-### 🚀 **Getting Started**
-- [`README.md`](../README.md) - Main project overview
-- [`QUICK_START.md`](../QUICK_START.md) - Fast deployment guide
-- [`cap-demo-enhancement/README.md`](../cap-demo-enhancement/README.md) - Enterprise demo setup
+### 🚀 **Quick Start Paths**
+- **Portfolio Reviewer**: [README.md](../README.md) → [PROJECT_JOURNEY.md](PROJECT_JOURNEY.md) → [screenshots/](screenshots/)
+- **Deploying the System**: [cap-demo-enhancement/README.md](../cap-demo-enhancement/README.md) → [OPERATIONS_GUIDE.md](OPERATIONS_GUIDE.md)
+- **Understanding Costs**: [cost-analysis.md](cost-analysis.md) → [OPERATIONS_GUIDE.md](OPERATIONS_GUIDE.md#cost-monitoring)
+- **Running a Demo**: [cap-demo-enhancement/QUICK_DEMO_COMMANDS.md](../cap-demo-enhancement/QUICK_DEMO_COMMANDS.md)
 
-### 📋 **Project Documentation**
-- [`PROJECT_STATUS.md`](PROJECT_STATUS.md) - Current project status
-- [`PROJECT_1_COMPLETE.md`](../PROJECT_1_COMPLETE.md) - Project completion summary
-- [`cost-analysis.md`](cost-analysis.md) - Cost breakdown and optimization
+---
 
-### 🔧 **Deployment & Operations**
+## � **Core Documentation**
+
+### 🎯 **Project Overview**
+- [`README.md`](../README.md) - Main project overview and architecture
+- [`PROJECT_STATUS.md`](PROJECT_STATUS.md) - Current project state and progress
+- [`PROJECT_JOURNEY.md`](PROJECT_JOURNEY.md) - Development story and decision rationale
+- [`cost-analysis.md`](cost-analysis.md) - Cost breakdown and optimization strategies
+
+### 🔧 **Operations & Deployment**
+- [`OPERATIONS_GUIDE.md`](OPERATIONS_GUIDE.md) - **⭐ Comprehensive operational knowledge**
 - [`cap-demo-enhancement/docs/DEPLOYMENT_GUIDE.md`](../cap-demo-enhancement/docs/DEPLOYMENT_GUIDE.md) - Complete deployment guide
 - [`cap-demo-enhancement/docs/DEMO_SCRIPT.md`](../cap-demo-enhancement/docs/DEMO_SCRIPT.md) - Demo walkthrough script
 - [`cap-demo-enhancement/QUICK_DEMO_COMMANDS.md`](../cap-demo-enhancement/QUICK_DEMO_COMMANDS.md) - Quick demo commands
 
-### 🧹 **Project Management**
-- [`DEPLOYMENT_ISSUES_RETROSPECTIVE.md`](DEPLOYMENT_ISSUES_RETROSPECTIVE.md) - Issue tracking and lessons learned
-- [`FILE_CLEANUP_ASSESSMENT.md`](FILE_CLEANUP_ASSESSMENT.md) - File organization assessment
-- [`CLEANUP_EXECUTION_PLAN.md`](CLEANUP_EXECUTION_PLAN.md) - Cleanup implementation plan
-
-### 📊 **Validation & Testing**
-- [`DASHBOARD_VALIDATION.md`](DASHBOARD_VALIDATION.md) - Dashboard testing results
+### 🔒 **Security & Validation**
+- [`SECURITY_CHECKLIST.md`](SECURITY_CHECKLIST.md) - Security validation procedures
+- [`DASHBOARD_VALIDATION.md`](DASHBOARD_VALIDATION.md) - Dashboard testing and validation
 - [`cap-demo-enhancement/tests/`](../cap-demo-enhancement/tests/) - Validation scripts directory
 
 ### 🏗️ **Architecture & Design**
-- [`cap-demo-enhancement/docs/ARCHITECTURE.md`](../cap-demo-enhancement/docs/ARCHITECTURE.md) - System architecture
-- [`terraform/`](../terraform/) - Basic pipeline infrastructure
-- [`cap-demo-enhancement/terraform/`](../cap-demo-enhancement/terraform/) - Enterprise demo infrastructure
+- [`cap-demo-enhancement/docs/ARCHITECTURE.md`](../cap-demo-enhancement/docs/ARCHITECTURE.md) - System architecture and design decisions
 
-### 📸 **Screenshots & Demos**
-- [`screenshots/`](screenshots/) - Dashboard and infrastructure screenshots
-- [`screenshots/README.md`](screenshots/README.md) - Screenshot documentation
-
-### 🔧 **Scripts & Utilities**
-- [`scripts/`](../scripts/) - Utility scripts directory
-- [`scripts/aws-session/`](../scripts/aws-session/) - AWS session management
-- [`cap-demo-enhancement/scripts/`](../cap-demo-enhancement/scripts/) - Deployment automation
-
-### 📝 **Templates & Reusability**
-- [`templates/`](../templates/) - Project templates and generators
-- [`templates/README.md`](../templates/README.md) - Template usage guide
-- [`templates/TEMPLATE_USAGE.md`](../templates/TEMPLATE_USAGE.md) - Detailed template documentation
-
-### 📋 **Issue Tracking**
-- [`ISSUE_TRACKING.md`](ISSUE_TRACKING.md) - Issue management
-- [`DOCUMENTATION_REVIEW_SUMMARY.md`](DOCUMENTATION_REVIEW_SUMMARY.md) - Documentation review
-- [`PROJECT_1_CLEANUP_SUMMARY.md`](PROJECT_1_CLEANUP_SUMMARY.md) - Cleanup summary
-
-## 📖 **Document Categories**
-
-### 🎯 **For New Users**
-Start with these documents to understand and deploy the project:
-1. [`README.md`](../README.md) - Project overview
-2. [`QUICK_START.md`](../QUICK_START.md) - Quick deployment
-3. [`cap-demo-enhancement/README.md`](../cap-demo-enhancement/README.md) - Enterprise features
-
-### 🔧 **For Developers**
-Technical implementation and maintenance:
-1. [`cap-demo-enhancement/docs/ARCHITECTURE.md`](../cap-demo-enhancement/docs/ARCHITECTURE.md) - System design
-2. [`cap-demo-enhancement/docs/DEPLOYMENT_GUIDE.md`](../cap-demo-enhancement/docs/DEPLOYMENT_GUIDE.md) - Technical deployment
-3. [`scripts/README.md`](../scripts/README.md) - Script documentation
-
-### 📊 **For Operations**
-Monitoring, costs, and maintenance:
-1. [`cost-analysis.md`](cost-analysis.md) - Cost management
-2. [`DASHBOARD_VALIDATION.md`](DASHBOARD_VALIDATION.md) - Monitoring setup
-3. [`PROJECT_STATUS.md`](PROJECT_STATUS.md) - Current status
-
-### 🎬 **For Demos**
-Portfolio and demonstration materials:
-1. [`cap-demo-enhancement/docs/DEMO_SCRIPT.md`](../cap-demo-enhancement/docs/DEMO_SCRIPT.md) - Demo script
-2. [`screenshots/`](screenshots/) - Visual documentation
-3. [`cap-demo-enhancement/QUICK_DEMO_COMMANDS.md`](../cap-demo-enhancement/QUICK_DEMO_COMMANDS.md) - Quick commands
-
-## 🔍 **Search Tips**
-
-- **Infrastructure**: Look in `terraform/` and `cap-demo-enhancement/terraform/`
-- **Scripts**: Check `scripts/` and `cap-demo-enhancement/scripts/`
-- **Testing**: Find in `cap-demo-enhancement/tests/`
-- **Cost Info**: See `cost-analysis.md` and deployment guides
-- **Troubleshooting**: Check `DEPLOYMENT_ISSUES_RETROSPECTIVE.md`
-
-## 📞 **Getting Help**
-
-1. **Quick Start**: [`QUICK_START.md`](../QUICK_START.md)
-2. **Issues**: [`DEPLOYMENT_ISSUES_RETROSPECTIVE.md`](DEPLOYMENT_ISSUES_RETROSPECTIVE.md)
-3. **Architecture**: [`cap-demo-enhancement/docs/ARCHITECTURE.md`](../cap-demo-enhancement/docs/ARCHITECTURE.md)
-4. **Templates**: [`templates/TEMPLATE_USAGE.md`](../templates/TEMPLATE_USAGE.md)
+## 📸 **Screenshots & Portfolio**
+- [`screenshots/README.md`](screenshots/README.md) - Screenshot collection overview
+- [`SCREENSHOT_NAVIGATION_GUIDE.md`](SCREENSHOT_NAVIGATION_GUIDE.md) - How to navigate AWS console for screenshots
+- [`SCREENSHOT_WALKTHROUGH_GUIDE.md`](SCREENSHOT_WALKTHROUGH_GUIDE.md) - Best practices for capturing screenshots
+- [`SCREENSHOT_PORTFOLIO_REVIEW.md`](SCREENSHOT_PORTFOLIO_REVIEW.md) - Portfolio analysis and recommendations
 
 ---
+
+## 📁 **Specialized Resources**
+
+### 🔍 **For Developers**
+- [`cap-demo-enhancement/src/`](../cap-demo-enhancement/src/) - Source code (Kafka producers, Lambda functions, processors)
+- [`cap-demo-enhancement/terraform/`](../cap-demo-enhancement/terraform/) - Infrastructure as Code
+- [`cap-demo-enhancement/tests/`](../cap-demo-enhancement/tests/) - Test scripts and validation
+
+### 🎮 **For Operators**
+- [`OPERATIONS_GUIDE.md`](OPERATIONS_GUIDE.md) - Complete operational procedures
+- [`SECURITY_CHECKLIST.md`](SECURITY_CHECKLIST.md) - Security validation steps
+- [`cost-analysis.md`](cost-analysis.md) - Cost monitoring and optimization
+
+### 👨‍💼 **For Reviewers**
+- [`PROJECT_JOURNEY.md`](PROJECT_JOURNEY.md) - Development story and decisions
+- [`screenshots/`](screenshots/) - Visual proof of working infrastructure
+- [`cap-demo-enhancement/docs/ARCHITECTURE.md`](../cap-demo-enhancement/docs/ARCHITECTURE.md) - Technical architecture
+
+### � **For Demos**
+- [`cap-demo-enhancement/QUICK_DEMO_COMMANDS.md`](../cap-demo-enhancement/QUICK_DEMO_COMMANDS.md) - Live demo script
+- [`cap-demo-enhancement/docs/DEMO_SCRIPT.md`](../cap-demo-enhancement/docs/DEMO_SCRIPT.md) - Comprehensive demo guide
+- [`SCREENSHOT_NAVIGATION_GUIDE.md`](SCREENSHOT_NAVIGATION_GUIDE.md) - Console navigation for live demos
+
+---
+
+## 📁 **Archive & Historical Documentation**
+- [`archive/README.md`](archive/README.md) - Archive organization and navigation
+- [`archive/cleanup-iterations/`](archive/cleanup-iterations/) - Historical cleanup documentation
+- [`archive/deployment-iterations/`](archive/deployment-iterations/) - Historical deployment documentation
+
+*Note: Archived documentation preserves the development journey but is not needed for day-to-day operations.*
+
+---
+
+## 🔧 **How to Navigate This Documentation**
+
+### **By Role**
+- **New Team Member**: Start with README.md → PROJECT_JOURNEY.md → OPERATIONS_GUIDE.md
+- **Deploying System**: OPERATIONS_GUIDE.md → cap-demo-enhancement/docs/DEPLOYMENT_GUIDE.md
+- **Portfolio Review**: PROJECT_JOURNEY.md → screenshots/ → cap-demo-enhancement/docs/ARCHITECTURE.md
+- **Running Demo**: cap-demo-enhancement/QUICK_DEMO_COMMANDS.md → SCREENSHOT_NAVIGATION_GUIDE.md
+
+### **By Task**
+- **Understanding the Project**: README.md → PROJECT_JOURNEY.md
+- **Deploying Infrastructure**: OPERATIONS_GUIDE.md → cap-demo-enhancement/docs/DEPLOYMENT_GUIDE.md
+- **Troubleshooting Issues**: OPERATIONS_GUIDE.md → SECURITY_CHECKLIST.md
+- **Cost Analysis**: cost-analysis.md → OPERATIONS_GUIDE.md
+- **Demo Preparation**: cap-demo-enhancement/QUICK_DEMO_COMMANDS.md
+
+### **By Audience**
+- **Hiring Managers**: README.md → PROJECT_JOURNEY.md → screenshots/
+- **Technical Teams**: OPERATIONS_GUIDE.md → cap-demo-enhancement/docs/ARCHITECTURE.md
+- **Operations Teams**: OPERATIONS_GUIDE.md → SECURITY_CHECKLIST.md → cost-analysis.md
+
+---
+
+*Last Updated: July 27, 2025 - Reorganized for improved navigation and user experience*
 
 *This index provides navigation to all project documentation. All paths are relative to the project root.*
